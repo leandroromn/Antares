@@ -15,7 +15,8 @@ enum Sorting: String {
 }
 
 struct Endpoint {
-    let path: String
+    let prefix: String = "3/movie"
+    var path: String
     let queryItems: [URLQueryItem]
 }
 
@@ -35,8 +36,8 @@ extension Endpoint {
     var url: URL? {
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "api.github.com"
-        components.path = path
+        components.host = "api.themoviedb.org"
+        components.path = "\(prefix)\(path)"
         components.queryItems = queryItems
         
         return components.url
