@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD0D31522283B4D90033FAD2 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31512283B4D90033FAD2 /* Endpoint.swift */; };
+		FD0D31542283BB570033FAD2 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31532283BB570033FAD2 /* DataLoader.swift */; };
 		FD760457227FB4A000FAFA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760456227FB4A000FAFA3B /* AppDelegate.swift */; };
 		FD76045E227FB4A000FAFA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD76045D227FB4A000FAFA3B /* Assets.xcassets */; };
 		FD760461227FB4A000FAFA3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD76045F227FB4A000FAFA3B /* LaunchScreen.storyboard */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		FD0D31512283B4D90033FAD2 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FD0D31532283BB570033FAD2 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		FD760453227FB4A000FAFA3B /* Antares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD760456227FB4A000FAFA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD76045D227FB4A000FAFA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				FD0D31512283B4D90033FAD2 /* Endpoint.swift */,
+				FD0D31532283BB570033FAD2 /* DataLoader.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				FD760480227FBA8A00FAFA3B /* ListMoviesPresenter.swift in Sources */,
 				FD760483227FBA8A00FAFA3B /* ListMoviesModels.swift in Sources */,
 				FD760485227FBA8A00FAFA3B /* ListMoviesInteractor.swift in Sources */,
+				FD0D31542283BB570033FAD2 /* DataLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
