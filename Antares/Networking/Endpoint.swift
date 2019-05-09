@@ -15,7 +15,7 @@ enum Sorting: String {
 }
 
 struct Endpoint {
-    let prefix: String = "3/movie"
+    let prefix: String = "/3/movie"
     var path: String
     let queryItems: [URLQueryItem]
 }
