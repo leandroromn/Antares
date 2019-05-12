@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CDB975368CDD69C110D1D62 /* Pods_AntaresTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75C1AED4888F016007BDA04 /* Pods_AntaresTests.framework */; };
+		6BB1DF18CA58C57447EDBF2C /* Pods_Antares.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C8EB0EB9459A1C20B12324 /* Pods_Antares.framework */; };
 		FD0D31522283B4D90033FAD2 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31512283B4D90033FAD2 /* Endpoint.swift */; };
 		FD0D31542283BB570033FAD2 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31532283BB570033FAD2 /* DataLoader.swift */; };
+		FD2711CD2287B53500041A49 /* ListMovies.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2711CC2287B53500041A49 /* ListMovies.strings */; };
+		FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2711CE2287B59E00041A49 /* R.generated.swift */; };
 		FD760457227FB4A000FAFA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760456227FB4A000FAFA3B /* AppDelegate.swift */; };
 		FD76045E227FB4A000FAFA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD76045D227FB4A000FAFA3B /* Assets.xcassets */; };
 		FD760461227FB4A000FAFA3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD76045F227FB4A000FAFA3B /* LaunchScreen.storyboard */; };
@@ -33,8 +37,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64A8C6E119E5F9DF2AE8C10B /* Pods-Antares.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.debug.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.debug.xcconfig"; sourceTree = "<group>"; };
+		719B4B81D070748D0859DD6F /* Pods-AntaresTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.debug.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.debug.xcconfig"; sourceTree = "<group>"; };
+		82C8EB0EB9459A1C20B12324 /* Pods_Antares.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Antares.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDE3537302D273EC2253ABA4 /* Pods-AntaresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.release.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.release.xcconfig"; sourceTree = "<group>"; };
+		E70BD96FF92F4227D95DB90B /* Pods-Antares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.release.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.release.xcconfig"; sourceTree = "<group>"; };
+		E75C1AED4888F016007BDA04 /* Pods_AntaresTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntaresTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0D31512283B4D90033FAD2 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FD0D31532283BB570033FAD2 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		FD2711CC2287B53500041A49 /* ListMovies.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ListMovies.strings; sourceTree = "<group>"; };
+		FD2711CE2287B59E00041A49 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		FD760453227FB4A000FAFA3B /* Antares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD760456227FB4A000FAFA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD76045D227FB4A000FAFA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB1DF18CA58C57447EDBF2C /* Pods_Antares.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,12 +77,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CDB975368CDD69C110D1D62 /* Pods_AntaresTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27C9674A916669ECC7F85E0D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82C8EB0EB9459A1C20B12324 /* Pods_Antares.framework */,
+				E75C1AED4888F016007BDA04 /* Pods_AntaresTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5772FDD990BA2F8C6A53ADB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64A8C6E119E5F9DF2AE8C10B /* Pods-Antares.debug.xcconfig */,
+				E70BD96FF92F4227D95DB90B /* Pods-Antares.release.xcconfig */,
+				719B4B81D070748D0859DD6F /* Pods-AntaresTests.debug.xcconfig */,
+				BDE3537302D273EC2253ABA4 /* Pods-AntaresTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FD0D31502283B4BA0033FAD2 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +119,8 @@
 				FD760455227FB4A000FAFA3B /* Antares */,
 				FD76046A227FB4A000FAFA3B /* AntaresTests */,
 				FD760454227FB4A000FAFA3B /* Products */,
+				5772FDD990BA2F8C6A53ADB8 /* Pods */,
+				27C9674A916669ECC7F85E0D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +167,7 @@
 			children = (
 				FD76045D227FB4A000FAFA3B /* Assets.xcassets */,
 				FD76045F227FB4A000FAFA3B /* LaunchScreen.storyboard */,
+				FD2711CE2287B59E00041A49 /* R.generated.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -146,6 +183,7 @@
 		FD760479227FBA6C00FAFA3B /* ListMovies */ = {
 			isa = PBXGroup;
 			children = (
+				FD2711CC2287B53500041A49 /* ListMovies.strings */,
 				FD76047A227FBA8A00FAFA3B /* ListMoviesPresenter.swift */,
 				FD76047B227FBA8A00FAFA3B /* ListMoviesWorker.swift */,
 				FD76047C227FBA8A00FAFA3B /* ListMoviesRouter.swift */,
@@ -164,9 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD760470227FB4A000FAFA3B /* Build configuration list for PBXNativeTarget "Antares" */;
 			buildPhases = (
+				8CADA1F7C6C62CF447CDAD3A /* [CP] Check Pods Manifest.lock */,
+				FD2711CB2287B42200041A49 /* R.swift */,
 				FD76044F227FB4A000FAFA3B /* Sources */,
 				FD760450227FB4A000FAFA3B /* Frameworks */,
 				FD760451227FB4A000FAFA3B /* Resources */,
+				A3B02B733FB83CEF211075C4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,6 +222,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD760473227FB4A000FAFA3B /* Build configuration list for PBXNativeTarget "AntaresTests" */;
 			buildPhases = (
+				C8C128E74ADD0F2B58B5B5C7 /* [CP] Check Pods Manifest.lock */,
 				FD760463227FB4A000FAFA3B /* Sources */,
 				FD760464227FB4A000FAFA3B /* Frameworks */,
 				FD760465227FB4A000FAFA3B /* Resources */,
@@ -239,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD760461227FB4A000FAFA3B /* LaunchScreen.storyboard in Resources */,
+				FD2711CD2287B53500041A49 /* ListMovies.strings in Resources */,
 				FD760487227FBAB200FAFA3B /* Movies.storyboard in Resources */,
 				FD76045E227FB4A000FAFA3B /* Assets.xcassets in Resources */,
 			);
@@ -253,6 +296,97 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8CADA1F7C6C62CF447CDAD3A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Antares-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3B02B733FB83CEF211075C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Antares/Pods-Antares-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Antares/Pods-Antares-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8C128E74ADD0F2B58B5B5C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AntaresTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD2711CB2287B42200041A49 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FD76044F227FB4A000FAFA3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -265,6 +399,7 @@
 				FD760484227FBA8A00FAFA3B /* ListMoviesViewController.swift in Sources */,
 				FD760480227FBA8A00FAFA3B /* ListMoviesPresenter.swift in Sources */,
 				FD760483227FBA8A00FAFA3B /* ListMoviesModels.swift in Sources */,
+				FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */,
 				FD760485227FBA8A00FAFA3B /* ListMoviesInteractor.swift in Sources */,
 				FD0D31542283BB570033FAD2 /* DataLoader.swift in Sources */,
 			);
@@ -418,6 +553,7 @@
 		};
 		FD760471227FB4A000FAFA3B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64A8C6E119E5F9DF2AE8C10B /* Pods-Antares.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -436,6 +572,7 @@
 		};
 		FD760472227FB4A000FAFA3B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E70BD96FF92F4227D95DB90B /* Pods-Antares.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +591,7 @@
 		};
 		FD760474227FB4A000FAFA3B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 719B4B81D070748D0859DD6F /* Pods-AntaresTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -474,6 +612,7 @@
 		};
 		FD760475227FB4A000FAFA3B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDE3537302D273EC2253ABA4 /* Pods-AntaresTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

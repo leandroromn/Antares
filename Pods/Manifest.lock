@@ -1,0 +1,32 @@
+PODS:
+  - PromiseKit (6.8.4):
+    - PromiseKit/CorePromise (= 6.8.4)
+    - PromiseKit/Foundation (= 6.8.4)
+    - PromiseKit/UIKit (= 6.8.4)
+  - PromiseKit/CorePromise (6.8.4)
+  - PromiseKit/Foundation (6.8.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.4):
+    - PromiseKit/CorePromise
+  - R.swift (5.0.3):
+    - R.swift.Library (~> 5.0.0)
+  - R.swift.Library (5.0.1)
+
+DEPENDENCIES:
+  - PromiseKit (~> 6.8)
+  - R.swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PromiseKit
+    - R.swift
+    - R.swift.Library
+
+SPEC CHECKSUMS:
+  PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
+  R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
+  R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+
+PODFILE CHECKSUM: 27499418476511b4d470b16a27e002a59c318300
+
+COCOAPODS: 1.6.1
