@@ -8,28 +8,18 @@
 
 import Foundation
 
-enum Sorting: String {
-    case numberOfStars = "stars"
-    case numberOfForks = "forks"
-    case recency = "updated"
+enum MovieCategory: String {
+    case latest
+    case popular
+    case upcoming
+    case nowPlaying = "now_playing"
+    case topRated = "top_rated"
 }
 
 struct Endpoint {
     let prefix: String = "/3/movie"
     var path: String
     let queryItems: [URLQueryItem]
-}
-
-extension Endpoint {
-    static func search(matching query: String, sortedBy sorting: Sorting = .recency) -> Endpoint {
-        return Endpoint(
-            path: "/search/repositories",
-            queryItems: [
-                URLQueryItem(name: "q", value: query),
-                URLQueryItem(name: "sorting", value: sorting.rawValue)
-            ]
-        )
-    }
 }
 
 extension Endpoint {
@@ -41,5 +31,17 @@ extension Endpoint {
         components.queryItems = queryItems
         
         return components.url
+    }
+}
+
+extension Endpoint {
+    static func search(by category: MovieCategory, page: Int = 1) -> Endpoint {
+        return Endpoint(
+            path: "/\(category.rawValue)",
+            queryItems: [
+                URLQueryItem(name: "api_key", value: "API_KEY"),
+                URLQueryItem(name: "page", value: "\(page)")
+            ]
+        )
     }
 }
