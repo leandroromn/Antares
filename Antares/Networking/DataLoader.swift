@@ -7,21 +7,28 @@
 //
 
 import Foundation
+import PromiseKit
 
 enum NetworkError: Error {
     case badUrl
+    case mappingError
 }
 
 class DataLoader {
-    func request(_ endpoint: Endpoint, then handler: @escaping (Result<Int, NetworkError>) -> Void) {
-        guard let url = endpoint.url else {
-            return handler(.failure(.badUrl))
+    func request(_ endpoint: Endpoint) -> Promise<Bool> {
+        return Promise { seal in
+            guard let url = endpoint.url else {
+                return seal.reject(NetworkError.badUrl)
+            }
+            
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let response = response as? HTTPURLResponse {
+                    print("✅ url", url.absoluteString)
+                    print("✅ status code", response.statusCode)
+                }
+                
+                return seal.fulfill(true)
+            }.resume()
         }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            handler(.success(5))
-        }
-        
-        task.resume()
     }
 }
