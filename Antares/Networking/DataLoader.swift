@@ -12,10 +12,11 @@ import PromiseKit
 enum NetworkError: Error {
     case badUrl
     case mappingError
+    case emptyResponseDataError
 }
 
 class DataLoader {
-    func request(_ endpoint: Endpoint) -> Promise<Bool> {
+    func request<T: Decodable>(_ endpoint: Endpoint) -> Promise<T> {
         return Promise { seal in
             guard let url = endpoint.url else {
                 return seal.reject(NetworkError.badUrl)
@@ -27,7 +28,16 @@ class DataLoader {
                     print("✅ status code", response.statusCode)
                 }
                 
-                return seal.fulfill(true)
+                guard let data = data else {
+                    return seal.reject(NetworkError.emptyResponseDataError)
+                }
+                
+                do {
+                    let decodableObject = try JSONDecoder().decode(T.self, from: data)
+                    return seal.fulfill(decodableObject)
+                } catch {
+                    return seal.reject(NetworkError.mappingError)
+                }
             }.resume()
         }
     }
