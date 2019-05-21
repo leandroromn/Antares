@@ -16,10 +16,10 @@ enum ListMovies {
 
     enum Something {
         struct Request { }
-
         struct Response { }
-
         struct ViewModel { }
     }
+    
+    class Response: BaseResponse<[Movie]> {}
 
 }
