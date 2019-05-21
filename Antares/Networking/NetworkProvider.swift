@@ -1,5 +1,5 @@
 //
-//  DataLoader.swift
+//  NetworkProvider.swift
 //  Antares
 //
 //  Created by Leandro Romano on 08/05/19.
@@ -15,7 +15,7 @@ enum NetworkError: Error {
     case emptyResponseDataError
 }
 
-class DataLoader {
+class NetworkProvider {
     func request<T: Decodable>(_ endpoint: Endpoint) -> Promise<T> {
         return Promise { seal in
             guard let url = endpoint.url else {

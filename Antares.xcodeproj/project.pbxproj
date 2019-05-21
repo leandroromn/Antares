@@ -10,7 +10,7 @@
 		0CDB975368CDD69C110D1D62 /* Pods_AntaresTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75C1AED4888F016007BDA04 /* Pods_AntaresTests.framework */; };
 		6BB1DF18CA58C57447EDBF2C /* Pods_Antares.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C8EB0EB9459A1C20B12324 /* Pods_Antares.framework */; };
 		FD0D31522283B4D90033FAD2 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31512283B4D90033FAD2 /* Endpoint.swift */; };
-		FD0D31542283BB570033FAD2 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31532283BB570033FAD2 /* DataLoader.swift */; };
+		FD0D31542283BB570033FAD2 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31532283BB570033FAD2 /* NetworkProvider.swift */; };
 		FD2711CD2287B53500041A49 /* ListMovies.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2711CC2287B53500041A49 /* ListMovies.strings */; };
 		FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2711CE2287B59E00041A49 /* R.generated.swift */; };
 		FD760457227FB4A000FAFA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760456227FB4A000FAFA3B /* AppDelegate.swift */; };
@@ -46,7 +46,7 @@
 		E70BD96FF92F4227D95DB90B /* Pods-Antares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.release.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.release.xcconfig"; sourceTree = "<group>"; };
 		E75C1AED4888F016007BDA04 /* Pods_AntaresTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntaresTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0D31512283B4D90033FAD2 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		FD0D31532283BB570033FAD2 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		FD0D31532283BB570033FAD2 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		FD2711CC2287B53500041A49 /* ListMovies.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ListMovies.strings; sourceTree = "<group>"; };
 		FD2711CE2287B59E00041A49 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		FD760453227FB4A000FAFA3B /* Antares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antares.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				FD0D31512283B4D90033FAD2 /* Endpoint.swift */,
-				FD0D31532283BB570033FAD2 /* DataLoader.swift */,
+				FD0D31532283BB570033FAD2 /* NetworkProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -425,7 +425,7 @@
 				FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */,
 				FD760485227FBA8A00FAFA3B /* ListMoviesInteractor.swift in Sources */,
 				FD7CF8D72293945000F3D64B /* BaseResponse.swift in Sources */,
-				FD0D31542283BB570033FAD2 /* DataLoader.swift in Sources */,
+				FD0D31542283BB570033FAD2 /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

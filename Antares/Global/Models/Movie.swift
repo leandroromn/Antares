@@ -33,7 +33,7 @@ class Movie: Decodable {
         case posterPath = "poster_path"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
-        case genres = "genres_ids"
+        case genres = "genre_ids"
         case backdropPath = "backdrop_path"
         case adult
         case overview
