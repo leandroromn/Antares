@@ -26,6 +26,7 @@
 		FD760487227FBAB200FAFA3B /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD760486227FBAB200FAFA3B /* Movies.storyboard */; };
 		FD7CF8D72293945000F3D64B /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7CF8D62293945000F3D64B /* BaseResponse.swift */; };
 		FD7CF8D92293985500F3D64B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7CF8D82293985500F3D64B /* Movie.swift */; };
+		FDA68AA2229A2B09001DAC4A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA68AA1229A2B09001DAC4A /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		FDA68A9B229A1348001DAC4A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		FDA68A9C229A134F001DAC4A /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		FDA68A9D229A1356001DAC4A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		FDA68AA1229A2B09001DAC4A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 		FDA68A9A229A133E001DAC4A /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				FDA68AA1229A2B09001DAC4A /* Configuration.swift */,
 				FDA68A9B229A1348001DAC4A /* Debug.xcconfig */,
 				FDA68A9C229A134F001DAC4A /* Development.xcconfig */,
 				FDA68A9D229A1356001DAC4A /* Release.xcconfig */,
@@ -419,7 +422,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -439,6 +442,7 @@
 				FD760481227FBA8A00FAFA3B /* ListMoviesWorker.swift in Sources */,
 				FD760484227FBA8A00FAFA3B /* ListMoviesViewController.swift in Sources */,
 				FD760480227FBA8A00FAFA3B /* ListMoviesPresenter.swift in Sources */,
+				FDA68AA2229A2B09001DAC4A /* Configuration.swift in Sources */,
 				FD760483227FBA8A00FAFA3B /* ListMoviesModels.swift in Sources */,
 				FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */,
 				FD760485227FBA8A00FAFA3B /* ListMoviesInteractor.swift in Sources */,
