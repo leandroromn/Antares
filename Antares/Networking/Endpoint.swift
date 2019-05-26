@@ -39,7 +39,7 @@ extension Endpoint {
         return Endpoint(
             path: "/\(category.rawValue)",
             queryItems: [
-                URLQueryItem(name: "api_key", value: "API_KEY"),
+                URLQueryItem(name: "api_key", value: Configuration.getValue(for: .movieDatabaseAPIKey)),
                 URLQueryItem(name: "page", value: "\(page)")
             ]
         )
