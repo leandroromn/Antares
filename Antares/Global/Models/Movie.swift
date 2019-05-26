@@ -18,7 +18,7 @@ class Movie: Decodable {
     let originalLanguage: String
     let originalTitle: String
     let genres: [Int]
-    let backdropPath: String
+    let backdropPath: String?
     let adult: Bool
     let overview: String
     let releaseDate: String
