@@ -124,3 +124,4 @@ iOSInjectionProject/
 *.generated.swift
 
 # End of https://www.gitignore.io/api/swift,xcode,macos
+Antares/Configuration/Development.xcconfig
