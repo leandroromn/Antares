@@ -16,6 +16,11 @@ enum NetworkError: Error {
 }
 
 class NetworkProvider {
+
+    private init() { }
+    
+    static let shared: NetworkProvider = NetworkProvider()
+    
     func request<T: Decodable>(_ endpoint: Endpoint) -> Promise<T> {
         return Promise { seal in
             guard let url = endpoint.url else {
@@ -41,4 +46,5 @@ class NetworkProvider {
             }.resume()
         }
     }
+    
 }
