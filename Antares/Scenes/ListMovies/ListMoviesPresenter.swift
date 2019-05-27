@@ -22,7 +22,7 @@ class ListMoviesPresenter: ListMoviesPresentationLogic {
     weak var viewController: ListMoviesDisplayLogic?
     
     func presentMovies(response: ListMovies.Response) {
-        let viewModel = ListMovies.ViewModel(page: 1, movies: response.results.map { return MovieViewModel(movie: $0) })
+        let viewModel = ListMovies.ViewModel(page: response.page, movies: response.results.map { return MovieViewModel(movie: $0) })
         viewController?.displayMovies(viewModel: viewModel)
     }
     
