@@ -13,18 +13,21 @@
 import UIKit
 
 protocol ListMoviesPresentationLogic {
-    func presentSomething(response: ListMovies.Something.Response)
+    func presentMovies(response: ListMovies.Response)
+    func presentError(_ error: Error)
 }
 
 class ListMoviesPresenter: ListMoviesPresentationLogic {
 
     weak var viewController: ListMoviesDisplayLogic?
-
-    // MARK: Do something
-
-    func presentSomething(response: ListMovies.Something.Response) {
-        let viewModel = ListMovies.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    
+    func presentMovies(response: ListMovies.Response) {
+        let viewModel = ListMovies.ViewModel(page: 1, movies: response.results.map { return MovieViewModel(movie: $0) })
+        viewController?.displayMovies(viewModel: viewModel)
+    }
+    
+    func presentError(_ error: Error) {
+        viewController?.displayError(error)
     }
     
 }

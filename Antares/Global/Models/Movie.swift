@@ -6,6 +6,8 @@
 //  Copyright © 2019 Leandro Romano. All rights reserved.
 //
 
+import UIKit
+
 class Movie: Decodable {
     
     let voteCount: Int
@@ -40,4 +42,20 @@ class Movie: Decodable {
         case releaseDate = "release_date"
     }
     
+}
+
+struct MovieViewModel {
+    let id: Int
+    let title: String
+    let voteAverage: Double
+    let genres: [String]
+    let poster: UIImage?
+    
+    init(movie: Movie) {
+        self.id = movie.id
+        self.title = movie.title
+        self.voteAverage = movie.voteAverage
+        self.genres = []
+        self.poster = nil
+    }
 }

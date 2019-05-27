@@ -10,10 +10,14 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+import PromiseKit
 
 class ListMoviesWorker {
-  
-    func doSomeWork() { }
+    
+    let networkProvider = NetworkProvider.shared
+    
+    func retrieveMovies(for category: MovieCategory) -> Promise<ListMovies.Response> {
+        return networkProvider.request(.search(by: category))
+    }
 
 }

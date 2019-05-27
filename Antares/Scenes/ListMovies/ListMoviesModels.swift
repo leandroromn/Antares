@@ -13,13 +13,12 @@
 import UIKit
 
 enum ListMovies {
-
-    enum Something {
-        struct Request { }
-        struct Response { }
-        struct ViewModel { }
-    }
     
     class Response: BaseResponse<[Movie]> {}
+    
+    struct ViewModel {
+        let page: Int
+        let movies: [MovieViewModel]
+    }
 
 }

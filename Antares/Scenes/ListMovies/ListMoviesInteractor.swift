@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ListMoviesBusinessLogic {
-    func doSomething(request: ListMovies.Something.Request)
+    func getMovies(by category: MovieCategory)
 }
 
 protocol ListMoviesDataStore {
@@ -24,16 +24,18 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
 
     var presenter: ListMoviesPresentationLogic?
     var worker: ListMoviesWorker?
-    //var name: String = ""
-
-    // MARK: Do something
-
-    func doSomething(request: ListMovies.Something.Request) {
+    
+    func getMovies(by category: MovieCategory) {
         worker = ListMoviesWorker()
-        worker?.doSomeWork()
-        
-        let response = ListMovies.Something.Response()
-        presenter?.presentSomething(response: response)
+        worker?.retrieveMovies(for: category).done(handleSuccess).catch(handleError)
+    }
+    
+    private func handleSuccess(_ response: ListMovies.Response) {
+        presenter?.presentMovies(response: response)
+    }
+    
+    private func handleError(_ error: Error) {
+        presenter?.presentError(error)
     }
     
 }

@@ -13,10 +13,11 @@
 import UIKit
 
 protocol ListMoviesDisplayLogic: class {
-    func displaySomething(viewModel: ListMovies.Something.ViewModel)
+    func displayMovies(viewModel: ListMovies.ViewModel)
+    func displayError(_ error: Error)
 }
 
-class ListMoviesViewController: UITableViewController, ListMoviesDisplayLogic {
+class ListMoviesViewController: UITableViewController {
 
     var interactor: ListMoviesBusinessLogic?
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
@@ -63,20 +64,33 @@ class ListMoviesViewController: UITableViewController, ListMoviesDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        getMovies()
     }
-
-    // MARK: Do something
 
     //@IBOutlet weak var nameTextField: UITextField!
 
-    func doSomething() {
-        let request = ListMovies.Something.Request()
-        interactor?.doSomething(request: request)
+    func getMovies() {
+        interactor?.getMovies(by: .nowPlaying)
     }
 
-    func displaySomething(viewModel: ListMovies.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
-    }
+}
 
+extension ListMoviesViewController: ListMoviesDisplayLogic {
+    
+    func displayMovies(viewModel: ListMovies.ViewModel) {
+        print("page", viewModel.page)
+        
+        viewModel.movies.forEach { movie in
+            print(movie.id, movie.title, movie.voteAverage)
+        }
+    }
+    
+    func displayError(_ error: Error) {
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Close", style: .cancel))
+        
+        present(alertController, animated: true)
+        print(error.localizedDescription)
+    }
+    
 }
