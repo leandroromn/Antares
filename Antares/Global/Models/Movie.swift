@@ -9,7 +9,6 @@
 import UIKit
 
 class Movie: Decodable {
-    
     let voteCount: Int
     let id: Int
     let video: Bool
@@ -41,7 +40,6 @@ class Movie: Decodable {
         case overview
         case releaseDate = "release_date"
     }
-    
 }
 
 struct MovieViewModel {
