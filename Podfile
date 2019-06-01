@@ -12,6 +12,7 @@ target 'Antares' do
   target 'AntaresTests' do
     inherit! :search_paths
     # Pods for testing
+    pod "Cuckoo"
   end
 
 end
