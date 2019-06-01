@@ -685,7 +685,7 @@
 		};
 		FD760474227FB4A000FAFA3B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDA68A9B229A1348001DAC4A /* Debug.xcconfig */;
+			baseConfigurationReference = 719B4B81D070748D0859DD6F /* Pods-AntaresTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -706,7 +706,7 @@
 		};
 		FD760475227FB4A000FAFA3B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDA68A9D229A1356001DAC4A /* Release.xcconfig */;
+			baseConfigurationReference = BDE3537302D273EC2253ABA4 /* Pods-AntaresTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -807,7 +807,7 @@
 		};
 		FDA68AA0229A1381001DAC4A /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDA68A9C229A134F001DAC4A /* Development.xcconfig */;
+			baseConfigurationReference = EE79A2B6567EE902C716A950 /* Pods-AntaresTests.development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
