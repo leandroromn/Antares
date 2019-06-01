@@ -125,3 +125,4 @@ iOSInjectionProject/
 
 # End of https://www.gitignore.io/api/swift,xcode,macos
 Antares/Configuration/Development.xcconfig
+AntaresTests/GeneratedMocks.swift
