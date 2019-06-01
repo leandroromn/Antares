@@ -11,12 +11,12 @@
 		6BB1DF18CA58C57447EDBF2C /* Pods_Antares.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C8EB0EB9459A1C20B12324 /* Pods_Antares.framework */; };
 		FD0D31522283B4D90033FAD2 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31512283B4D90033FAD2 /* Endpoint.swift */; };
 		FD0D31542283BB570033FAD2 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31532283BB570033FAD2 /* NetworkProvider.swift */; };
+		FD1B44BC22A3345F004AFE9C /* ListMoviesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */; };
 		FD2711CD2287B53500041A49 /* ListMovies.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2711CC2287B53500041A49 /* ListMovies.strings */; };
 		FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2711CE2287B59E00041A49 /* R.generated.swift */; };
 		FD760457227FB4A000FAFA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760456227FB4A000FAFA3B /* AppDelegate.swift */; };
 		FD76045E227FB4A000FAFA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD76045D227FB4A000FAFA3B /* Assets.xcassets */; };
 		FD760461227FB4A000FAFA3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD76045F227FB4A000FAFA3B /* LaunchScreen.storyboard */; };
-		FD76046C227FB4A000FAFA3B /* AntaresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76046B227FB4A000FAFA3B /* AntaresTests.swift */; };
 		FD760480227FBA8A00FAFA3B /* ListMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76047A227FBA8A00FAFA3B /* ListMoviesPresenter.swift */; };
 		FD760481227FBA8A00FAFA3B /* ListMoviesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76047B227FBA8A00FAFA3B /* ListMoviesWorker.swift */; };
 		FD760482227FBA8A00FAFA3B /* ListMoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76047C227FBA8A00FAFA3B /* ListMoviesRouter.swift */; };
@@ -51,6 +51,7 @@
 		EE79A2B6567EE902C716A950 /* Pods-AntaresTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.development.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.development.xcconfig"; sourceTree = "<group>"; };
 		FD0D31512283B4D90033FAD2 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FD0D31532283BB570033FAD2 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesInteractorTests.swift; sourceTree = "<group>"; };
 		FD2711CC2287B53500041A49 /* ListMovies.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ListMovies.strings; sourceTree = "<group>"; };
 		FD2711CE2287B59E00041A49 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		FD760453227FB4A000FAFA3B /* Antares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antares.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +60,6 @@
 		FD760460227FB4A000FAFA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD760462227FB4A000FAFA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD760467227FB4A000FAFA3B /* AntaresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntaresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD76046B227FB4A000FAFA3B /* AntaresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntaresTests.swift; sourceTree = "<group>"; };
 		FD76046D227FB4A000FAFA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD76047A227FBA8A00FAFA3B /* ListMoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesPresenter.swift; sourceTree = "<group>"; };
 		FD76047B227FBA8A00FAFA3B /* ListMoviesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesWorker.swift; sourceTree = "<group>"; };
@@ -128,6 +128,22 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		FD1B44B922A333EF004AFE9C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FD1B44BA22A33440004AFE9C /* ListMovies */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FD1B44BA22A33440004AFE9C /* ListMovies */ = {
+			isa = PBXGroup;
+			children = (
+				FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */,
+			);
+			path = ListMovies;
+			sourceTree = "<group>";
+		};
 		FD76044A227FB4A000FAFA3B = {
 			isa = PBXGroup;
 			children = (
@@ -165,9 +181,9 @@
 		FD76046A227FB4A000FAFA3B /* AntaresTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD76046B227FB4A000FAFA3B /* AntaresTests.swift */,
 				FD76046D227FB4A000FAFA3B /* Info.plist */,
 				FD82824222A31947003C6C82 /* GeneratedMocks.swift */,
+				FD1B44B922A333EF004AFE9C /* Scenes */,
 			);
 			path = AntaresTests;
 			sourceTree = "<group>";
@@ -502,8 +518,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD76046C227FB4A000FAFA3B /* AntaresTests.swift in Sources */,
 				FD82824322A31947003C6C82 /* GeneratedMocks.swift in Sources */,
+				FD1B44BC22A3345F004AFE9C /* ListMoviesInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
