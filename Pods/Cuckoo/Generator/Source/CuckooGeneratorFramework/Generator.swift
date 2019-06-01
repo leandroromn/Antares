@@ -28,13 +28,13 @@ public struct Generator {
         }
 
         ext.registerFilter("matchableGenericNames") { (value: Any?) in
-            guard let parameters = value as? [MethodParameter] else { return value }
-            return self.matchableGenerics(with: parameters)
+            guard let method = value as? Method else { return value }
+            return self.matchableGenericTypes(from: method)
         }
 
-        ext.registerFilter("matchableGenericWhere") { (value: Any?) in
-            guard let parameters = value as? [MethodParameter] else { return value }
-            return self.matchableGenerics(where: parameters)
+        ext.registerFilter("matchableGenericWhereClause") { (value: Any?) in
+            guard let method = value as? Method else { return value }
+            return self.matchableGenericsWhereClause(from: method)
         }
 
         ext.registerFilter("matchableParameterSignature") { (value: Any?) in
@@ -68,18 +68,26 @@ public struct Generator {
         return try environment.renderTemplate(string: Templates.mock, context: ["containers": containers, "debug": debug])
     }
 
-    private func matchableGenerics(with parameters: [MethodParameter]) -> String {
-        guard parameters.isEmpty == false else { return "" }
+    private func matchableGenericTypes(from method: Method) -> String {
+        guard !method.parameters.isEmpty || !method.genericParameters.isEmpty else { return "" }
 
-        let genericParameters = (1...parameters.count).map { "M\($0): Cuckoo.Matchable" }.joined(separator: ", ")
-        return "<\(genericParameters)>"
+        let matchableGenericParameters = method.parameters.enumerated().map { index, parameter -> String in
+            let type = parameter.isOptional ? "OptionalMatchable" : "Matchable"
+            return "M\(index + 1): Cuckoo.\(type)"
+        }
+        let methodGenericParameters = method.genericParameters.map { $0.description }
+        return "<\((matchableGenericParameters + methodGenericParameters).joined(separator: ", "))>"
     }
 
-    private func matchableGenerics(where parameters: [MethodParameter]) -> String {
-        guard parameters.isEmpty == false else { return "" }
+    private func matchableGenericsWhereClause(from method: Method) -> String {
+        guard method.parameters.isEmpty == false else { return "" }
 
-        let whereClause = parameters.enumerated().map { "M\($0 + 1).MatchedType == \(genericSafeType(from: $1.typeWithoutAttributes))" }.joined(separator: ", ")
-        return " where \(whereClause)"
+        let matchableWhereConstraints = method.parameters.enumerated().map { index, parameter -> String in
+            let type = parameter.isOptional ? "OptionalMatchedType" : "MatchedType"
+            return "M\(index + 1).\(type) == \(genericSafeType(from: parameter.type.withoutAttributes.unoptionaled.sugarized))"
+        }
+        let methodWhereConstraints = method.returnSignature.whereConstraints
+        return " where \((matchableWhereConstraints + methodWhereConstraints).joined(separator: ", "))"
     }
 
     private func matchableParameterSignature(with parameters: [MethodParameter]) -> String {
@@ -104,9 +112,9 @@ public struct Generator {
         var fullString = ""
         for (index, parameter) in parameters.enumerated() {
             if parameter.isClosure && !parameter.isEscaping {
-                let indents = String(repeating: "\t", count: index + 1)
+                let indents = String(repeating: "\t", count: index)
                 let tries = (throwing ?? false) ? " try " : " "
-                fullString += "\(indents)return\(tries)withoutActuallyEscaping(\(parameter.name), do: { (\(parameter.name)) in\n"
+                fullString += "\(indents)return\(tries)withoutActuallyEscaping(\(parameter.name), do: { (\(parameter.name): @escaping \(parameter.type)) in\n"
             }
         }
         return fullString
@@ -116,7 +124,7 @@ public struct Generator {
         var fullString = ""
         for (index, parameter) in parameters.enumerated() {
             if parameter.isClosure && !parameter.isEscaping {
-                let indents = String(repeating: "\t", count: index + 1)
+                let indents = String(repeating: "\t", count: index)
                 fullString += "\(indents)})\n"
             }
         }

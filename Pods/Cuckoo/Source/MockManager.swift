@@ -32,9 +32,48 @@ public class MockManager {
     }
 
     private func callInternal<IN, OUT>(_ method: String, parameters: IN, escapingParameters: IN, superclassCall: () -> OUT, defaultCall: () -> OUT) -> OUT {
-        return try! callThrowsInternal(method, parameters: parameters, escapingParameters: escapingParameters, superclassCall: superclassCall, defaultCall: defaultCall)
+        return callRethrowsInternal(method, parameters: parameters, escapingParameters: escapingParameters, superclassCall: superclassCall, defaultCall: defaultCall)
     }
-    
+
+    private func callRethrowsInternal<IN, OUT>(_ method: String, parameters: IN, escapingParameters: IN, superclassCall: () throws -> OUT, defaultCall: () throws -> OUT) rethrows -> OUT {
+        let stubCall = ConcreteStubCall(method: method, parameters: escapingParameters)
+        stubCalls.append(stubCall)
+        unverifiedStubCallsIndexes.append(stubCalls.count - 1)
+
+        if let stub = (stubs.filter { $0.method == method }.compactMap { $0 as? ConcreteStub<IN, OUT> }.filter { $0.parameterMatchers.reduce(true) { $0 && $1.matches(parameters) } }.first) {
+            if let action = stub.actions.first {
+                if stub.actions.count > 1 {
+                    // Bug in Swift, this expression resolves as uncalled function
+                    _ = stub.actions.removeFirst()
+                }
+                switch action {
+                case .callImplementation(let implementation):
+                    return try DispatchQueue(label: "No-care?").sync(execute: {
+                        return try implementation(parameters)
+                    })
+                case .returnValue(let value):
+                    return value
+                case .throwError(let error):
+                    return try DispatchQueue(label: "No-care?").sync(execute: {
+                        throw error
+                    })
+                case .callRealImplementation where hasParent:
+                    return try superclassCall()
+                default:
+                    failAndCrash("No real implementation found for method `\(method)`. This is probably caused  by stubbed object being a mock of a protocol.")
+                }
+            } else {
+                failAndCrash("Stubbing of method `\(method)` using parameters \(parameters) wasn't finished (missing thenReturn()).")
+            }
+        } else if isSuperclassSpyEnabled {
+            return try superclassCall()
+        } else if isDefaultImplementationEnabled {
+            return try defaultCall()
+        } else {
+            failAndCrash("No stub for method `\(method)` using parameters \(parameters).")
+        }
+    }
+
     private func callThrowsInternal<IN, OUT>(_ method: String, parameters: IN, escapingParameters: IN, superclassCall: () throws -> OUT, defaultCall: () throws -> OUT) throws -> OUT {
         let stubCall = ConcreteStubCall(method: method, parameters: escapingParameters)
         stubCalls.append(stubCall)
@@ -82,7 +121,7 @@ public class MockManager {
         return stub
     }
     
-    public func verify<IN, OUT>(_ method: String, callMatcher: CallMatcher, parameterMatchers: [ParameterMatcher<IN>], sourceLocation: SourceLocation) -> __DoNotUse<OUT> {
+    public func verify<IN, OUT>(_ method: String, callMatcher: CallMatcher, parameterMatchers: [ParameterMatcher<IN>], sourceLocation: SourceLocation) -> __DoNotUse<IN, OUT> {
         var calls: [StubCall] = []
         var indexesToRemove: [Int] = []
         for (i, stubCall) in stubCalls.enumerated() {
@@ -179,11 +218,11 @@ extension MockManager {
 
 extension MockManager {
     public func getter<T>(_ property: String, superclassCall: @autoclosure () -> T, defaultCall: @autoclosure () -> T) -> T {
-        return call(getterName(property), parameters: Void(), escapingParameters: Void(), superclassCall: superclassCall, defaultCall: defaultCall())
+        return call(getterName(property), parameters: Void(), escapingParameters: Void(), superclassCall: superclassCall(), defaultCall: defaultCall())
     }
 
     public func setter<T>(_ property: String, value: T, superclassCall: @autoclosure () -> Void, defaultCall: @autoclosure () -> Void) {
-        return call(setterName(property), parameters: value, escapingParameters: value, superclassCall: superclassCall, defaultCall: defaultCall())
+        return call(setterName(property), parameters: value, escapingParameters: value, superclassCall: superclassCall(), defaultCall: defaultCall())
     }
 }
 
@@ -196,5 +235,11 @@ extension MockManager {
 extension MockManager {
     public func callThrows<IN, OUT>(_ method: String, parameters: IN, escapingParameters: IN, superclassCall: @autoclosure () throws -> OUT, defaultCall: @autoclosure () throws -> OUT) throws -> OUT {
         return try callThrowsInternal(method, parameters: parameters, escapingParameters: escapingParameters, superclassCall: superclassCall, defaultCall: defaultCall)
+    }
+}
+
+extension MockManager {
+    public func callRethrows<IN, OUT>(_ method: String, parameters: IN, escapingParameters: IN, superclassCall: @autoclosure () throws -> OUT, defaultCall: @autoclosure () throws -> OUT) rethrows -> OUT {
+        return try callRethrowsInternal(method, parameters: parameters, escapingParameters: escapingParameters, superclassCall: superclassCall, defaultCall: defaultCall)
     }
 }

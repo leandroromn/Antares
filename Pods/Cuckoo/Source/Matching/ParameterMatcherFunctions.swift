@@ -27,6 +27,11 @@ public func equal<T>(to set: Set<T>) -> ParameterMatcher<Set<T>> {
     return equal(to: set, equalWhen: ==)
 }
 
+/// Returns an equality matcher for Dictionary<Hashable, Equatable>
+public func equal<K: Hashable, V: Equatable>(to dictionary: [K: V]) -> ParameterMatcher<[K: V]> {
+    return equal(to: dictionary, equalWhen: ==)
+}
+
 /// Returns a matcher using the supplied function.
 public func equal<T>(to value: T, equalWhen equalityFunction: @escaping (T, T) -> Bool) -> ParameterMatcher<T> {
     return ParameterMatcher {
@@ -45,16 +50,77 @@ public func anyString() -> ParameterMatcher<String> {
 }
 
 /// Returns a matcher matching any closure.
-public func anyThrowingClosure<IN, OUT>() -> ParameterMatcher<(IN) throws -> OUT> {
+public func anyThrowingClosure<OUT>() -> ParameterMatcher<() throws -> OUT> {
     return ParameterMatcher()
 }
 
-public func anyClosure<IN, OUT>() -> ParameterMatcher<(IN) -> OUT> {
+public func anyThrowingClosure<IN1, OUT>() -> ParameterMatcher<(IN1) throws -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyThrowingClosure<IN1, IN2, OUT>() -> ParameterMatcher<(IN1, IN2) throws -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyThrowingClosure<IN1, IN2, IN3, OUT>() -> ParameterMatcher<(IN1, IN2, IN3) throws -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyThrowingClosure<IN1, IN2, IN3, IN4, OUT>() -> ParameterMatcher<(IN1, IN2, IN3, IN4) throws -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyThrowingClosure<IN1, IN2, IN3, IN4, IN5, OUT>() -> ParameterMatcher<(IN1, IN2, IN3, IN4, IN5) throws -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyThrowingClosure<IN1, IN2, IN3, IN4, IN5, IN6, OUT>() -> ParameterMatcher<(IN1, IN2, IN3, IN4, IN5, IN6) throws -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyThrowingClosure<IN1, IN2, IN3, IN4, IN5, IN6, IN7, OUT>() -> ParameterMatcher<(IN1, IN2, IN3, IN4, IN5, IN6, IN7) throws -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyClosure<OUT>() -> ParameterMatcher<() -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyClosure<IN1, OUT>() -> ParameterMatcher<(IN1) -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyClosure<IN1, IN2, OUT>() -> ParameterMatcher<(IN1, IN2) -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyClosure<IN1, IN2, IN3, OUT>() -> ParameterMatcher<(IN1, IN2, IN3) -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyClosure<IN1, IN2, IN3, IN4, OUT>() -> ParameterMatcher<(IN1, IN2, IN3, IN4) -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyClosure<IN1, IN2, IN3, IN4, IN5, OUT>() -> ParameterMatcher<(IN1, IN2, IN3, IN4, IN5) -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyClosure<IN1, IN2, IN3, IN4, IN5, IN6, OUT>() -> ParameterMatcher<(IN1, IN2, IN3, IN4, IN5, IN6) -> OUT> {
+    return ParameterMatcher()
+}
+
+public func anyClosure<IN1, IN2, IN3, IN4, IN5, IN6, IN7, OUT>() -> ParameterMatcher<(IN1, IN2, IN3, IN4, IN5, IN6, IN7) -> OUT> {
     return ParameterMatcher()
 }
 
 /// Returns a matcher matching any T value or nil.
 public func any<T>(_ type: T.Type = T.self) -> ParameterMatcher<T> {
+    return ParameterMatcher()
+}
+
+/// Returns a matcher matching any T value or nil.
+public func any<T>(_ type: T.Type = T.self) -> ParameterMatcher<T?> {
     return ParameterMatcher()
 }
 

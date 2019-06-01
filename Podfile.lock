@@ -1,5 +1,5 @@
 PODS:
-  - Cuckoo (0.12.1)
+  - Cuckoo (1.0.6)
   - Nimble (8.0.1)
   - PromiseKit (6.8.4):
     - PromiseKit/CorePromise (= 6.8.4)
@@ -15,7 +15,7 @@ PODS:
   - R.swift.Library (5.0.1)
 
 DEPENDENCIES:
-  - Cuckoo
+  - Cuckoo (~> 1.0.6)
   - Nimble
   - PromiseKit (~> 6.8)
   - R.swift
@@ -29,12 +29,12 @@ SPEC REPOS:
     - R.swift.Library
 
 SPEC CHECKSUMS:
-  Cuckoo: 2f10364798baa4b0d4aacabfa475249cf29977bc
+  Cuckoo: 8074fc309159c4862665b83798f5ad03e061e8bd
   Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
 
-PODFILE CHECKSUM: d0355c9e1f273758ac53ded7ea50e9d48c080dd6
+PODFILE CHECKSUM: d672ee888b30df1ecfa43e41640f1d13095a4882
 
 COCOAPODS: 1.6.1

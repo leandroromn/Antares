@@ -21,14 +21,17 @@ extension Templates {
     }
 
     {% for property in container.properties %}
-    var {{property.name}}: Cuckoo.Verify{% if property.isReadOnly %}ReadOnly{%endif%}Property<{{property.type|genericSafe}}> {
+    {% for attribute in property.attributes %}
+    {{ attribute.text }}
+    {% endfor %}
+    var {{property.name}}: Cuckoo.{{property.verifyType}}<{% if property.isReadOnly %}{{property.type|genericSafe}}{% else %}{{property.nonOptionalType|genericSafe}}{% endif %}> {
         return .init(manager: cuckoo_manager, name: "{{property.name}}", callMatcher: callMatcher, sourceLocation: sourceLocation)
     }
     {% endfor %}
 
     {% for method in container.methods %}
     @discardableResult
-    func {{method.name}}{{method.parameters|matchableGenericNames}}({{method.parameters|matchableParameterSignature}}) -> Cuckoo.__DoNotUse<{{method.returnType|genericSafe}}>{{method.parameters|matchableGenericWhere}} {
+    func {{method.name}}{{method.self|matchableGenericNames}}({{method.parameters|matchableParameterSignature}}) -> Cuckoo.__DoNotUse<({{method.inputTypes|genericSafe}}), {{method.returnType|genericSafe}}>{{method.self|matchableGenericWhereClause}} {
         {{method.parameters|parameterMatchers}}
         return cuckoo_manager.verify("{{method.fullyQualifiedName}}", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
     }
