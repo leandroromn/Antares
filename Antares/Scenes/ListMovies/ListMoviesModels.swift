@@ -14,7 +14,17 @@ import UIKit
 
 enum ListMovies {
     
-    class Response: BaseResponse<[Movie]> {}
+    class Response: BaseResponse<[Movie]> {
+        
+        init(page: Int, totalPages: Int, totalResults: Int, results: [Movie]) {
+            super.init(page: page, totalResults: totalResults, totalPages: totalPages, results: results)
+        }
+        
+        required init(from decoder: Decoder) throws {
+            try super.init(from: decoder)
+        }
+        
+    }
     
     struct ViewModel {
         let page: Int
