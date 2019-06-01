@@ -25,8 +25,11 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
     var presenter: ListMoviesPresentationLogic?
     var worker: ListMoviesWorker?
     
+    init(worker: ListMoviesWorker = ListMoviesWorker()) {
+        self.worker = worker
+    }
+    
     func getMovies(by category: MovieCategory) {
-        worker = ListMoviesWorker()
         worker?.retrieveMovies(for: category).done(handleSuccess).catch(handleError)
     }
     
