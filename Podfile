@@ -13,6 +13,7 @@ target 'Antares' do
     inherit! :search_paths
     # Pods for testing
     pod "Cuckoo"
+    pod "Nimble"
   end
 
 end
