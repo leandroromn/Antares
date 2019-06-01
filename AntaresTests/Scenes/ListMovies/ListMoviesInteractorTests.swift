@@ -46,6 +46,27 @@ class ListMoviesInteractorTests: XCTestCase {
         
         verify(mockPresenter, times(1)).presentMovies(response: any())
     }
+    
+    func testGetPopularMoviesFailure() {
+        let mockPresenter = MockListMoviesPresenter()
+        
+        stub(mockPresenter) { stub in
+            when(stub.presentError(any())).thenDoNothing()
+        }
+        
+        stub(worker) { stub in
+            when(stub.retrieveMovies(for: any())).then { request -> Promise<ListMovies.Response> in
+                return Promise<ListMovies.Response> { seal in
+                    seal.reject(NetworkError.mappingError)
+                }
+            }
+        }
+        
+        sut.presenter = mockPresenter
+        sut.getMovies(by: .popular)
+        
+        verify(mockPresenter, times(1)).presentError(any())
+    }
 
     override func tearDown() {
         super.tearDown()
