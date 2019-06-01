@@ -26,6 +26,7 @@
 		FD760487227FBAB200FAFA3B /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD760486227FBAB200FAFA3B /* Movies.storyboard */; };
 		FD7CF8D72293945000F3D64B /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7CF8D62293945000F3D64B /* BaseResponse.swift */; };
 		FD7CF8D92293985500F3D64B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7CF8D82293985500F3D64B /* Movie.swift */; };
+		FD82824322A31947003C6C82 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82824222A31947003C6C82 /* GeneratedMocks.swift */; };
 		FDA68AA2229A2B09001DAC4A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA68AA1229A2B09001DAC4A /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		FD760486227FBAB200FAFA3B /* Movies.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
 		FD7CF8D62293945000F3D64B /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		FD7CF8D82293985500F3D64B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		FD82824222A31947003C6C82 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		FDA68A9B229A1348001DAC4A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		FDA68A9C229A134F001DAC4A /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		FDA68A9D229A1356001DAC4A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				FD76046B227FB4A000FAFA3B /* AntaresTests.swift */,
 				FD76046D227FB4A000FAFA3B /* Info.plist */,
+				FD82824222A31947003C6C82 /* GeneratedMocks.swift */,
 			);
 			path = AntaresTests;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				8CADA1F7C6C62CF447CDAD3A /* [CP] Check Pods Manifest.lock */,
 				FD2711CB2287B42200041A49 /* R.swift */,
 				FD76044F227FB4A000FAFA3B /* Sources */,
+				FD82823F22A316DB003C6C82 /* Cuckoo Script */,
 				FD760450227FB4A000FAFA3B /* Frameworks */,
 				FD760451227FB4A000FAFA3B /* Resources */,
 				A3B02B733FB83CEF211075C4 /* [CP] Embed Pods Frameworks */,
@@ -447,11 +451,29 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		FD82823F22A316DB003C6C82 /* Cuckoo Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Cuckoo Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesInteractor.swift\"\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -481,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD76046C227FB4A000FAFA3B /* AntaresTests.swift in Sources */,
+				FD82824322A31947003C6C82 /* GeneratedMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
