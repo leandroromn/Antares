@@ -28,10 +28,7 @@ class NetworkProvider {
             }
             
             URLSession.shared.dataTask(with: url) { data, response, error in
-                if let response = response as? HTTPURLResponse {
-                    print("✅ url", url.absoluteString)
-                    print("✅ status code", response.statusCode)
-                }
+                Logger.log(for: url.absoluteString, with: response)
                 
                 guard let data = data else {
                     return seal.reject(NetworkError.emptyResponseDataError)
