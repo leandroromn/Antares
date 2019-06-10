@@ -16,6 +16,8 @@
 		FD1B44BC22A3345F004AFE9C /* ListMoviesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */; };
 		FD2711CD2287B53500041A49 /* ListMovies.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2711CC2287B53500041A49 /* ListMovies.strings */; };
 		FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2711CE2287B59E00041A49 /* R.generated.swift */; };
+		FD57F12E22ADF9EF00061EC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD57F12D22ADF9EF00061EC6 /* Constants.swift */; };
+		FD57F13022ADFA9A00061EC6 /* AntaresUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD57F12F22ADFA9A00061EC6 /* AntaresUtils.swift */; };
 		FD760457227FB4A000FAFA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760456227FB4A000FAFA3B /* AppDelegate.swift */; };
 		FD76045E227FB4A000FAFA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD76045D227FB4A000FAFA3B /* Assets.xcassets */; };
 		FD760461227FB4A000FAFA3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD76045F227FB4A000FAFA3B /* LaunchScreen.storyboard */; };
@@ -58,6 +60,8 @@
 		FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesInteractorTests.swift; sourceTree = "<group>"; };
 		FD2711CC2287B53500041A49 /* ListMovies.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ListMovies.strings; sourceTree = "<group>"; };
 		FD2711CE2287B59E00041A49 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		FD57F12D22ADF9EF00061EC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FD57F12F22ADFA9A00061EC6 /* AntaresUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntaresUtils.swift; sourceTree = "<group>"; };
 		FD760453227FB4A000FAFA3B /* Antares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD760456227FB4A000FAFA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD76045D227FB4A000FAFA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,6 +161,22 @@
 			path = ListMovies;
 			sourceTree = "<group>";
 		};
+		FD57F12B22ADF9D900061EC6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FD76045D227FB4A000FAFA3B /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		FD57F12C22ADF9DF00061EC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD76045F227FB4A000FAFA3B /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FD76044A227FB4A000FAFA3B = {
 			isa = PBXGroup;
 			children = (
@@ -213,9 +233,11 @@
 		FD760477227FBA4F00FAFA3B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FD76045D227FB4A000FAFA3B /* Assets.xcassets */,
-				FD76045F227FB4A000FAFA3B /* LaunchScreen.storyboard */,
+				FD57F12B22ADF9D900061EC6 /* Assets */,
+				FD57F12C22ADF9DF00061EC6 /* Views */,
 				FD2711CE2287B59E00041A49 /* R.generated.swift */,
+				FD57F12D22ADF9EF00061EC6 /* Constants.swift */,
+				FD57F12F22ADFA9A00061EC6 /* AntaresUtils.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -483,7 +505,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -519,12 +541,14 @@
 				FD7CF8D92293985500F3D64B /* Movie.swift in Sources */,
 				FD0D31522283B4D90033FAD2 /* Endpoint.swift in Sources */,
 				FD760481227FBA8A00FAFA3B /* ListMoviesWorker.swift in Sources */,
+				FD57F12E22ADF9EF00061EC6 /* Constants.swift in Sources */,
 				FD760484227FBA8A00FAFA3B /* ListMoviesViewController.swift in Sources */,
 				FD760480227FBA8A00FAFA3B /* ListMoviesPresenter.swift in Sources */,
 				FDA68AA2229A2B09001DAC4A /* Configuration.swift in Sources */,
 				FD760483227FBA8A00FAFA3B /* ListMoviesModels.swift in Sources */,
 				FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */,
 				FD760485227FBA8A00FAFA3B /* ListMoviesInteractor.swift in Sources */,
+				FD57F13022ADFA9A00061EC6 /* AntaresUtils.swift in Sources */,
 				FD10F8D122A5DE92000BD89F /* Logger.swift in Sources */,
 				FD7CF8D72293945000F3D64B /* BaseResponse.swift in Sources */,
 				FD0D31542283BB570033FAD2 /* NetworkProvider.swift in Sources */,

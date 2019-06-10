@@ -81,7 +81,7 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
         print("page", viewModel.page)
         
         viewModel.movies.forEach { movie in
-            print(movie.id, movie.title, movie.voteAverage)
+            print(movie.id, movie.title, movie.voteAverage, movie.poster ?? "no cover")
         }
     }
     

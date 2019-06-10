@@ -17,7 +17,7 @@ enum MovieCategory: String {
 }
 
 struct Endpoint {
-    let prefix: String = "/3/movie"
+    let prefix: String = Constants.apiMovieEndpointUrl
     var path: String
     let queryItems: [URLQueryItem]
 }
@@ -26,7 +26,7 @@ extension Endpoint {
     var url: URL? {
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "api.themoviedb.org"
+        components.host = Constants.apiHostUrl
         components.path = "\(prefix)\(path)"
         components.queryItems = queryItems
         

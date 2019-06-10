@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum MovieCoverSize: String {
+    case original
+    case small = "w500"
+}
+
 class Movie: Decodable {
     let voteCount: Int
     let id: Int
@@ -47,13 +52,13 @@ struct MovieViewModel {
     let title: String
     let voteAverage: Double
     let genres: [String]
-    let poster: UIImage?
+    let poster: String?
     
     init(movie: Movie) {
         self.id = movie.id
         self.title = movie.title
         self.voteAverage = movie.voteAverage
         self.genres = []
-        self.poster = nil
+        self.poster = AntaresUtils.getCoverImageBy(path: movie.posterPath, withSize: .original)
     }
 }
