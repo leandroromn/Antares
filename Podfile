@@ -8,6 +8,7 @@ target 'Antares' do
   # Pods for Antares
   pod "PromiseKit", "~> 6.8"
   pod "R.swift"
+  pod "SDWebImage", "~> 5.0"
 
   target 'AntaresTests' do
     inherit! :search_paths
