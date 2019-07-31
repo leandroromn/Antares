@@ -27,7 +27,7 @@ class ListMoviesViewController: UIViewController {
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var backgroundMoviePosterImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -76,26 +76,21 @@ class ListMoviesViewController: UIViewController {
     // MARK: - Animations and Flow Style
     
     fileprivate var currentPage: Int = 0 {
-        didSet { animateSomething(currentPage) }
+        didSet { executeChangeAnimation(currentPage) }
     }
     
-    func animateSomething(_ page: Int = 0) {
+    func executeChangeAnimation(_ page: Int = 0) {
         guard let viewModel = interactor?.cellForItem(at: page) else { return }
-        
         UIView.transition(
-            with: backgroundMoviePosterImageView,
+            with: backgroundImageView,
             duration: 0.25,
             options: [.transitionCrossDissolve],
             animations: {
-                self.backgroundMoviePosterImageView.sd_setImage(
+                self.backgroundImageView.sd_setImage(
                     with: viewModel.posterPath.getCoverImageWith(size: .original),
                     placeholderImage: R.image.movieCover()
                 )
         })
-        
-//        UIView.transition(with: self.view, duration: 1, options: [.transitionCurlUp]) {
-//
-//        }
     }
     
     fileprivate var pageSize: CGSize {
@@ -117,7 +112,7 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
     
     func displayDynamicData() {
         DispatchQueue.main.async { [weak self] in
-            self?.animateSomething()
+            self?.executeChangeAnimation()
             self?.collectionView.reloadData()
         }
     }
@@ -125,9 +120,7 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
     func displayError(_ error: Error) {
         let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Close", style: .cancel))
-        
         present(alertController, animated: true)
-        print(error.localizedDescription)
     }
     
 }
