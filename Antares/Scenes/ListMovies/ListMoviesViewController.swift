@@ -11,18 +11,23 @@
 //
 
 import UIKit
+import SDWebImage
+import UPCarouselFlowLayout
 
 protocol ListMoviesDisplayLogic: class {
-    func displayMovies(viewModel: ListMovies.ViewModel)
+    func displayDynamicData()
     func displayError(_ error: Error)
 }
 
-class ListMoviesViewController: UITableViewController {
+class ListMoviesViewController: UIViewController {
 
+    // MARK: - Clean Swift Setup
+    
     var interactor: ListMoviesBusinessLogic?
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
-
-    // MARK: Object lifecycle
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var backgroundMoviePosterImageView: UIImageView!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -33,8 +38,6 @@ class ListMoviesViewController: UITableViewController {
         super.init(coder: aDecoder)
         setup()
     }
-
-    // MARK: Setup
 
     private func setup() {
         let viewController = self
@@ -48,40 +51,74 @@ class ListMoviesViewController: UITableViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
-
-    // MARK: Routing
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-
-    // MARK: View lifecycle
+    
+    // MARK: - View Cycles
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMovies()
+        setupView()
+        requestMovies()
     }
-
-    //@IBOutlet weak var nameTextField: UITextField!
-
-    func getMovies() {
+    
+    fileprivate func setupView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout {
+            layout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 30)
+        }
+    }
+    
+    func requestMovies() {
         interactor?.getMovies(by: .nowPlaying)
+    }
+    
+    // MARK: - Animations and Flow Style
+    
+    fileprivate var currentPage: Int = 0 {
+        didSet { animateSomething(currentPage) }
+    }
+    
+    func animateSomething(_ page: Int = 0) {
+        guard let viewModel = interactor?.cellForItem(at: page) else { return }
+        
+        UIView.transition(
+            with: backgroundMoviePosterImageView,
+            duration: 0.25,
+            options: [.transitionCrossDissolve],
+            animations: {
+                self.backgroundMoviePosterImageView.sd_setImage(
+                    with: viewModel.posterPath.getCoverImageWith(size: .original),
+                    placeholderImage: R.image.movieCover()
+                )
+        })
+        
+//        UIView.transition(with: self.view, duration: 1, options: [.transitionCurlUp]) {
+//
+//        }
+    }
+    
+    fileprivate var pageSize: CGSize {
+        guard let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout else { return CGSize(width: 0, height: 0) }
+        var pageSize = layout.itemSize
+        pageSize.width += layout.minimumLineSpacing
+        return pageSize
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageSide = pageSize.width
+        let offset = scrollView.contentOffset.x
+        currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
     }
 
 }
 
 extension ListMoviesViewController: ListMoviesDisplayLogic {
     
-    func displayMovies(viewModel: ListMovies.ViewModel) {
-        print("page", viewModel.page)
-        
-        viewModel.movies.forEach { movie in
-            print(movie.id, movie.title, movie.voteAverage, movie.poster ?? "no cover")
+    func displayDynamicData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.animateSomething()
+            self?.collectionView.reloadData()
         }
     }
     
@@ -93,4 +130,23 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
         print(error.localizedDescription)
     }
     
+}
+
+extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return interactor?.numberOfItems ?? 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let listMoviesCell = collectionView.dequeueReusableCell(withReuseIdentifier: ListMoviesCollectionViewCell.identifier, for: indexPath)
+        
+        if let cell = listMoviesCell as? ListMoviesCollectionViewCell, let viewModel = interactor?.cellForItem(at: indexPath.row) {
+            cell.configure(viewModel)
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+
 }

@@ -10,8 +10,6 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
-
 enum ListMovies {
     
     class Response: BaseResponse<[Movie]> {
@@ -27,8 +25,20 @@ enum ListMovies {
     }
     
     struct ViewModel {
-        let page: Int
-        let movies: [MovieViewModel]
+        
+        let title: String
+        let overview: String
+        let voteAverage: Double
+        let posterPath: String
+        
+        init(movie: Movie) {
+            self.title = movie.title
+            self.overview = movie.overview
+            self.voteAverage = movie.voteAverage
+            self.posterPath = movie.posterPath
+        }
+        
+        
     }
 
 }

@@ -16,6 +16,7 @@ PODS:
   - SDWebImage (5.0.4):
     - SDWebImage/Core (= 5.0.4)
   - SDWebImage/Core (5.0.4)
+  - UPCarouselFlowLayout (1.1.2)
 
 DEPENDENCIES:
   - Cuckoo (~> 1.0.6)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - PromiseKit (~> 6.8)
   - R.swift
   - SDWebImage (~> 5.0)
+  - UPCarouselFlowLayout (= 1.1.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -32,6 +34,7 @@ SPEC REPOS:
     - R.swift
     - R.swift.Library
     - SDWebImage
+    - UPCarouselFlowLayout
 
 SPEC CHECKSUMS:
   Cuckoo: 8074fc309159c4862665b83798f5ad03e061e8bd
@@ -40,7 +43,8 @@ SPEC CHECKSUMS:
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   SDWebImage: c739016e4bdf0a4a1f9a04b5e0385395ad63a282
+  UPCarouselFlowLayout: 4c7d2c43a10ebb1597bde502a53699d378341dad
 
-PODFILE CHECKSUM: cd051f4fa08c6cb8e6078918602241ad932b2ac0
+PODFILE CHECKSUM: fcec9cf06080fd7702963e032000fc9af40e36e2
 
 COCOAPODS: 1.6.1

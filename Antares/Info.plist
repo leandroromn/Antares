@@ -34,6 +34,10 @@
 	</array>
 	<key>THE_MOVIE_DB_API_KEY</key>
 	<string>$(THE_MOVIE_DB_API_KEY)</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

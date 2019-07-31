@@ -9,6 +9,7 @@ target 'Antares' do
   pod "PromiseKit", "~> 6.8"
   pod "R.swift"
   pod "SDWebImage", "~> 5.0"
+  pod "UPCarouselFlowLayout", "1.1.2"
 
   target 'AntaresTests' do
     inherit! :search_paths

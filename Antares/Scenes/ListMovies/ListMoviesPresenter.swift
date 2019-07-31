@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ListMoviesPresentationLogic {
-    func presentMovies(response: ListMovies.Response)
+    func presentDynamicData()
     func presentError(_ error: Error)
 }
 
@@ -21,9 +21,8 @@ class ListMoviesPresenter: ListMoviesPresentationLogic {
 
     weak var viewController: ListMoviesDisplayLogic?
     
-    func presentMovies(response: ListMovies.Response) {
-        let viewModel = ListMovies.ViewModel(page: response.page, movies: response.results.map { return MovieViewModel(movie: $0) })
-        viewController?.displayMovies(viewModel: viewModel)
+    func presentDynamicData() {
+        viewController?.displayDynamicData()
     }
     
     func presentError(_ error: Error) {

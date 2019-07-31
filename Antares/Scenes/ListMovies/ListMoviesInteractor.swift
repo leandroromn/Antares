@@ -13,7 +13,9 @@
 import UIKit
 
 protocol ListMoviesBusinessLogic {
+    var numberOfItems: Int { get }
     func getMovies(by category: MovieCategory)
+    func cellForItem(at index: Int) -> ListMovies.ViewModel
 }
 
 protocol ListMoviesDataStore {
@@ -25,6 +27,11 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
     var presenter: ListMoviesPresentationLogic?
     var worker: ListMoviesWorker?
     
+    var movies = [Movie]()
+    var numberOfItems: Int {
+        return movies.count
+    }
+    
     init(worker: ListMoviesWorker = ListMoviesWorker()) {
         self.worker = worker
     }
@@ -34,11 +41,16 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
     }
     
     private func handleSuccess(_ response: ListMovies.Response) {
-        presenter?.presentMovies(response: response)
+        movies = response.results
+        presenter?.presentDynamicData()
     }
     
     private func handleError(_ error: Error) {
         presenter?.presentError(error)
+    }
+    
+    func cellForItem(at index: Int) -> ListMovies.ViewModel {
+        return ListMovies.ViewModel(movie: movies[index])
     }
     
 }
