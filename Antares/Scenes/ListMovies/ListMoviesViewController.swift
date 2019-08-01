@@ -27,8 +27,10 @@ class ListMoviesViewController: UIViewController {
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var backgroundImageView: UIImageView!
-
+    @IBOutlet weak var searchTypeLabel: UILabel!
+    @IBOutlet weak var genresLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -58,6 +60,10 @@ class ListMoviesViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         requestMovies()
+        
+        searchTypeLabel.attributedText = NSMutableAttributedString()
+            .bold("Recommended ", fontSize: 17)
+            .light("for You", fontSize: 17)
     }
     
     fileprivate func setupView() {
@@ -81,16 +87,7 @@ class ListMoviesViewController: UIViewController {
     
     func executeChangeAnimation(_ page: Int = 0) {
         guard let viewModel = interactor?.cellForItem(at: page) else { return }
-        UIView.transition(
-            with: backgroundImageView,
-            duration: 0.25,
-            options: [.transitionCrossDissolve],
-            animations: {
-                self.backgroundImageView.sd_setImage(
-                    with: viewModel.posterPath.getCoverImageWith(size: .original),
-                    placeholderImage: R.image.movieCover()
-                )
-        })
+        titleLabel.attributedText = viewModel.title.setLineSpacing(spacing: 0.0, lineHeightMultiple: 0.9)
     }
     
     fileprivate var pageSize: CGSize {

@@ -35,6 +35,7 @@
 		FDA68AA2229A2B09001DAC4A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA68AA1229A2B09001DAC4A /* Configuration.swift */; };
 		FDB1A25822C2E95B007A8B57 /* ListMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1A25722C2E95B007A8B57 /* ListMoviesCollectionViewCell.swift */; };
 		FDB1A25B22C30484007A8B57 /* UIViewController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1A25A22C30484007A8B57 /* UIViewController+StatusBar.swift */; };
+		FDC6C56622F270D900A8363D /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC6C56522F270D900A8363D /* NSMutableAttributedString+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		FDA68AA1229A2B09001DAC4A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDB1A25722C2E95B007A8B57 /* ListMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		FDB1A25A22C30484007A8B57 /* UIViewController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StatusBar.swift"; sourceTree = "<group>"; };
+		FDC6C56522F270D900A8363D /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +324,7 @@
 			children = (
 				FDB1A25A22C30484007A8B57 /* UIViewController+StatusBar.swift */,
 				FD0B288622F1254600AC8463 /* Strings+Extensions.swift */,
+				FDC6C56522F270D900A8363D /* NSMutableAttributedString+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				FD760483227FBA8A00FAFA3B /* ListMoviesModels.swift in Sources */,
 				FD0B288722F1254600AC8463 /* Strings+Extensions.swift in Sources */,
 				FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */,
+				FDC6C56622F270D900A8363D /* NSMutableAttributedString+Extensions.swift in Sources */,
 				FD760485227FBA8A00FAFA3B /* ListMoviesInteractor.swift in Sources */,
 				FD57F13022ADFA9A00061EC6 /* AntaresUtils.swift in Sources */,
 				FD10F8D122A5DE92000BD89F /* Logger.swift in Sources */,

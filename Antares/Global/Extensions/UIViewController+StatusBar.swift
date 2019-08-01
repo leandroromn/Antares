@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
     
     var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
     
 }
