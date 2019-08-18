@@ -12,7 +12,6 @@
 
 import UIKit
 import SDWebImage
-import UPCarouselFlowLayout
 
 protocol ListMoviesDisplayLogic: class {
     func displayDynamicData()
