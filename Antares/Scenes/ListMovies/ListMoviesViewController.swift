@@ -30,6 +30,7 @@ class ListMoviesViewController: UIViewController {
     @IBOutlet weak var searchTypeLabel: UILabel!
     @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -62,8 +63,8 @@ class ListMoviesViewController: UIViewController {
         requestMovies()
         
         searchTypeLabel.attributedText = NSMutableAttributedString()
-            .bold("Recommended ", fontSize: 17)
-            .light("for You", fontSize: 17)
+            .bold("Now playing ", fontSize: 17)
+            .light("movies", fontSize: 17)
     }
     
     fileprivate func setupView() {
@@ -88,6 +89,13 @@ class ListMoviesViewController: UIViewController {
     func executeChangeAnimation(_ page: Int = 0) {
         guard let viewModel = interactor?.cellForItem(at: page) else { return }
         titleLabel.attributedText = viewModel.title.setLineSpacing(spacing: 0.0, lineHeightMultiple: 0.9)
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.5
+        titleLabel.lineBreakMode = .byTruncatingTail
+        
+        descriptionLabel.attributedText = viewModel.overview.setLineSpacing(spacing: 0.0, lineHeightMultiple: 1.4)
+        descriptionLabel.adjustsFontSizeToFitWidth = true
+        descriptionLabel.lineBreakMode = .byTruncatingTail
     }
     
     fileprivate var pageSize: CGSize {
