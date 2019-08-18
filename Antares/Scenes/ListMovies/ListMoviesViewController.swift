@@ -26,12 +26,6 @@ class ListMoviesViewController: UIViewController {
     var interactor: ListMoviesBusinessLogic?
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchTypeLabel: UILabel!
-    @IBOutlet weak var genresLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -61,54 +55,14 @@ class ListMoviesViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         requestMovies()
-        
-        searchTypeLabel.attributedText = NSMutableAttributedString()
-            .bold("Now playing ", fontSize: 17)
-            .light("movies", fontSize: 17)
     }
     
     fileprivate func setupView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        if let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout {
-            layout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 30)
-        }
+
     }
     
     func requestMovies() {
         interactor?.getMovies(by: .nowPlaying)
-    }
-    
-    // MARK: - Animations and Flow Style
-    
-    fileprivate var currentPage: Int = 0 {
-        didSet { executeChangeAnimation(currentPage) }
-    }
-    
-    func executeChangeAnimation(_ page: Int = 0) {
-        guard let viewModel = interactor?.cellForItem(at: page) else { return }
-        titleLabel.attributedText = viewModel.title.setLineSpacing(spacing: 0.0, lineHeightMultiple: 0.9)
-        titleLabel.adjustsFontSizeToFitWidth = true
-        titleLabel.minimumScaleFactor = 0.5
-        titleLabel.lineBreakMode = .byTruncatingTail
-        
-        descriptionLabel.attributedText = viewModel.overview.setLineSpacing(spacing: 0.0, lineHeightMultiple: 1.4)
-        descriptionLabel.adjustsFontSizeToFitWidth = true
-        descriptionLabel.lineBreakMode = .byTruncatingTail
-    }
-    
-    fileprivate var pageSize: CGSize {
-        guard let layout = collectionView.collectionViewLayout as? UPCarouselFlowLayout else { return CGSize(width: 0, height: 0) }
-        var pageSize = layout.itemSize
-        pageSize.width += layout.minimumLineSpacing
-        return pageSize
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageSide = pageSize.width
-        let offset = scrollView.contentOffset.x
-        currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
     }
 
 }
@@ -117,8 +71,7 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
     
     func displayDynamicData() {
         DispatchQueue.main.async { [weak self] in
-            self?.executeChangeAnimation()
-            self?.collectionView.reloadData()
+            
         }
     }
     
@@ -128,23 +81,4 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
         present(alertController, animated: true)
     }
     
-}
-
-extension ListMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return interactor?.numberOfItems ?? 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let listMoviesCell = collectionView.dequeueReusableCell(withReuseIdentifier: ListMoviesCollectionViewCell.identifier, for: indexPath)
-        
-        if let cell = listMoviesCell as? ListMoviesCollectionViewCell, let viewModel = interactor?.cellForItem(at: indexPath.row) {
-            cell.configure(viewModel)
-            return cell
-        }
-        
-        return UICollectionViewCell()
-    }
-
 }
