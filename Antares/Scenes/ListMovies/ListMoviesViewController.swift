@@ -25,6 +25,12 @@ class ListMoviesViewController: UIViewController {
     var interactor: ListMoviesBusinessLogic?
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -57,7 +63,15 @@ class ListMoviesViewController: UIViewController {
     }
     
     fileprivate func setupView() {
-
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorColor = .clear
+        tableView.backgroundColor = .black
+        tableView.register(
+            UINib(nibName: R.nib.movieItemTableViewCell.name, bundle: R.nib.movieItemTableViewCell.bundle),
+            forCellReuseIdentifier: MovieItemTableViewCell.identifier
+        )
+        tableView.tableHeaderView = R.nib.movieListHeaderView.firstView(owner: nil)
     }
     
     func requestMovies() {
@@ -70,7 +84,7 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
     
     func displayDynamicData() {
         DispatchQueue.main.async { [weak self] in
-            
+            self?.tableView.reloadData()
         }
     }
     
@@ -78,6 +92,29 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
         let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Close", style: .cancel))
         present(alertController, animated: true)
+    }
+    
+}
+
+extension ListMoviesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return interactor?.numberOfItems ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: MovieItemTableViewCell.identifier, for: indexPath) as? MovieItemTableViewCell
+        else { return UITableViewCell() }
+        
+        cell.configure(interactor?.cellForItem(at: indexPath.row))
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

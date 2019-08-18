@@ -10,8 +10,8 @@ import UIKit
 
 extension UIViewController {
     
-    var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
-    }
+//    var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
     
 }

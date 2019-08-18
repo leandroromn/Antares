@@ -17,6 +17,10 @@
 		FD1B44BC22A3345F004AFE9C /* ListMoviesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */; };
 		FD2711CD2287B53500041A49 /* ListMovies.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2711CC2287B53500041A49 /* ListMovies.strings */; };
 		FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2711CE2287B59E00041A49 /* R.generated.swift */; };
+		FD3A4B5C2308F55200CAEE90 /* MovieItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3A4B5A2308F55200CAEE90 /* MovieItemTableViewCell.swift */; };
+		FD3A4B5D2308F55200CAEE90 /* MovieItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3A4B5B2308F55200CAEE90 /* MovieItemTableViewCell.xib */; };
+		FD3A4B5F230909BA00CAEE90 /* MovieListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3A4B5E230909BA00CAEE90 /* MovieListHeaderView.swift */; };
+		FD3A4B61230909C200CAEE90 /* MovieListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3A4B60230909C200CAEE90 /* MovieListHeaderView.xib */; };
 		FD57F12E22ADF9EF00061EC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD57F12D22ADF9EF00061EC6 /* Constants.swift */; };
 		FD57F13022ADFA9A00061EC6 /* AntaresUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD57F12F22ADFA9A00061EC6 /* AntaresUtils.swift */; };
 		FD760457227FB4A000FAFA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760456227FB4A000FAFA3B /* AppDelegate.swift */; };
@@ -33,7 +37,6 @@
 		FD7CF8D92293985500F3D64B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7CF8D82293985500F3D64B /* Movie.swift */; };
 		FD82824322A31947003C6C82 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82824222A31947003C6C82 /* GeneratedMocks.swift */; };
 		FDA68AA2229A2B09001DAC4A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA68AA1229A2B09001DAC4A /* Configuration.swift */; };
-		FDB1A25822C2E95B007A8B57 /* ListMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1A25722C2E95B007A8B57 /* ListMoviesCollectionViewCell.swift */; };
 		FDB1A25B22C30484007A8B57 /* UIViewController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1A25A22C30484007A8B57 /* UIViewController+StatusBar.swift */; };
 		FDC6C56622F270D900A8363D /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC6C56522F270D900A8363D /* NSMutableAttributedString+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,10 @@
 		FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesInteractorTests.swift; sourceTree = "<group>"; };
 		FD2711CC2287B53500041A49 /* ListMovies.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ListMovies.strings; sourceTree = "<group>"; };
 		FD2711CE2287B59E00041A49 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		FD3A4B5A2308F55200CAEE90 /* MovieItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemTableViewCell.swift; sourceTree = "<group>"; };
+		FD3A4B5B2308F55200CAEE90 /* MovieItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieItemTableViewCell.xib; sourceTree = "<group>"; };
+		FD3A4B5E230909BA00CAEE90 /* MovieListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListHeaderView.swift; sourceTree = "<group>"; };
+		FD3A4B60230909C200CAEE90 /* MovieListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListHeaderView.xib; sourceTree = "<group>"; };
 		FD57F12D22ADF9EF00061EC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FD57F12F22ADFA9A00061EC6 /* AntaresUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntaresUtils.swift; sourceTree = "<group>"; };
 		FD760453227FB4A000FAFA3B /* Antares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antares.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +95,6 @@
 		FDA68A9C229A134F001DAC4A /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		FDA68A9D229A1356001DAC4A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		FDA68AA1229A2B09001DAC4A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		FDB1A25722C2E95B007A8B57 /* ListMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		FDB1A25A22C30484007A8B57 /* UIViewController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StatusBar.swift"; sourceTree = "<group>"; };
 		FDC6C56522F270D900A8363D /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -314,7 +320,10 @@
 		FDB1A25622C2E819007A8B57 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FDB1A25722C2E95B007A8B57 /* ListMoviesCollectionViewCell.swift */,
+				FD3A4B5A2308F55200CAEE90 /* MovieItemTableViewCell.swift */,
+				FD3A4B5B2308F55200CAEE90 /* MovieItemTableViewCell.xib */,
+				FD3A4B5E230909BA00CAEE90 /* MovieListHeaderView.swift */,
+				FD3A4B60230909C200CAEE90 /* MovieListHeaderView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -418,8 +427,10 @@
 			files = (
 				FD760461227FB4A000FAFA3B /* LaunchScreen.storyboard in Resources */,
 				FD2711CD2287B53500041A49 /* ListMovies.strings in Resources */,
+				FD3A4B61230909C200CAEE90 /* MovieListHeaderView.xib in Resources */,
 				FD760487227FBAB200FAFA3B /* Movies.storyboard in Resources */,
 				FD76045E227FB4A000FAFA3B /* Assets.xcassets in Resources */,
+				FD3A4B5D2308F55200CAEE90 /* MovieItemTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +552,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -576,10 +587,10 @@
 				FD760482227FBA8A00FAFA3B /* ListMoviesRouter.swift in Sources */,
 				FD7CF8D92293985500F3D64B /* Movie.swift in Sources */,
 				FD0D31522283B4D90033FAD2 /* Endpoint.swift in Sources */,
+				FD3A4B5F230909BA00CAEE90 /* MovieListHeaderView.swift in Sources */,
 				FDB1A25B22C30484007A8B57 /* UIViewController+StatusBar.swift in Sources */,
 				FD760481227FBA8A00FAFA3B /* ListMoviesWorker.swift in Sources */,
 				FD57F12E22ADF9EF00061EC6 /* Constants.swift in Sources */,
-				FDB1A25822C2E95B007A8B57 /* ListMoviesCollectionViewCell.swift in Sources */,
 				FD760484227FBA8A00FAFA3B /* ListMoviesViewController.swift in Sources */,
 				FD760480227FBA8A00FAFA3B /* ListMoviesPresenter.swift in Sources */,
 				FDA68AA2229A2B09001DAC4A /* Configuration.swift in Sources */,
@@ -590,6 +601,7 @@
 				FD760485227FBA8A00FAFA3B /* ListMoviesInteractor.swift in Sources */,
 				FD57F13022ADFA9A00061EC6 /* AntaresUtils.swift in Sources */,
 				FD10F8D122A5DE92000BD89F /* Logger.swift in Sources */,
+				FD3A4B5C2308F55200CAEE90 /* MovieItemTableViewCell.swift in Sources */,
 				FD7CF8D72293945000F3D64B /* BaseResponse.swift in Sources */,
 				FD0D31542283BB570033FAD2 /* NetworkProvider.swift in Sources */,
 			);
