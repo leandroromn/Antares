@@ -6,15 +6,15 @@ target 'Antares' do
   use_frameworks!
 
   # Pods for Antares
-  pod "PromiseKit", "~> 6.8"
-  pod "R.swift"
-  pod "SDWebImage", "~> 5.0"
+  pod "PromiseKit", "6.8.4"
+  pod "R.swift", "5.0.3"
+  pod "SDWebImage", "5.0.4"
   
   target 'AntaresTests' do
     inherit! :search_paths
     # Pods for testing
-    pod "Cuckoo", "~> 1.0.6"
-    pod "Nimble"
+    pod "Cuckoo", "1.0.6"
+    pod "Nimble", "8.0.1"
   end
 
 end
