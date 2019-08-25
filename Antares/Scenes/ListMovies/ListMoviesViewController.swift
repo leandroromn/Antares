@@ -16,11 +16,10 @@ import SDWebImage
 protocol ListMoviesDisplayLogic: class {
     func displayDynamicData()
     func displayError(_ error: Error)
+    func displayMovieDetails()
 }
 
 class ListMoviesViewController: UIViewController {
-
-    // MARK: - Clean Swift Setup
     
     var interactor: ListMoviesBusinessLogic?
     var router: (NSObjectProtocol & ListMoviesRoutingLogic & ListMoviesDataPassing)?
@@ -94,6 +93,10 @@ extension ListMoviesViewController: ListMoviesDisplayLogic {
         present(alertController, animated: true)
     }
     
+    func displayMovieDetails() {
+        router?.routeToDetails()
+    }
+    
 }
 
 extension ListMoviesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -114,7 +117,7 @@ extension ListMoviesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        interactor?.didSelectRow(at: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

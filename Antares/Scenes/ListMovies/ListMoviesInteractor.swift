@@ -16,10 +16,11 @@ protocol ListMoviesBusinessLogic {
     var numberOfItems: Int { get }
     func getMovies(by category: MovieCategory)
     func cellForItem(at index: Int) -> ListMovies.ViewModel
+    func didSelectRow(at index: Int)
 }
 
 protocol ListMoviesDataStore {
-    //var name: String { get set }
+    var movieId: Int? { get }
 }
 
 class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
@@ -28,6 +29,7 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
     var worker: ListMoviesWorker?
     
     var movies = [Movie]()
+    var movieId: Int?
     var numberOfItems: Int {
         return movies.count
     }
@@ -51,6 +53,11 @@ class ListMoviesInteractor: ListMoviesBusinessLogic, ListMoviesDataStore {
     
     func cellForItem(at index: Int) -> ListMovies.ViewModel {
         return ListMovies.ViewModel(movie: movies[index])
+    }
+    
+    func didSelectRow(at index: Int) {
+        movieId = movies[index].id
+        presenter?.presentMovieDetails()
     }
     
 }

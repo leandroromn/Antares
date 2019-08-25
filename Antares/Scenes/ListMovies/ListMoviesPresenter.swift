@@ -15,6 +15,7 @@ import UIKit
 protocol ListMoviesPresentationLogic {
     func presentDynamicData()
     func presentError(_ error: Error)
+    func presentMovieDetails()
 }
 
 class ListMoviesPresenter: ListMoviesPresentationLogic {
@@ -27,6 +28,10 @@ class ListMoviesPresenter: ListMoviesPresentationLogic {
     
     func presentError(_ error: Error) {
         viewController?.displayError(error)
+    }
+    
+    func presentMovieDetails() {
+        viewController?.displayMovieDetails()
     }
     
 }

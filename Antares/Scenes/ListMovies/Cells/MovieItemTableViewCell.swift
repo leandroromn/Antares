@@ -20,6 +20,8 @@ class MovieItemTableViewCell: UITableViewCell {
     @IBOutlet weak var voteAverageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    lazy var views = [containerView, posterImageView, titleEffectView, voteEffectView, voteAverageLabel, titleLabel]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
@@ -43,6 +45,8 @@ class MovieItemTableViewCell: UITableViewCell {
             $0.layer.cornerRadius = voteEffectView.frame.size.width/2
             $0.layoutSubviews()
         }
+        
+        hideViews()
     }
     
     func configure(_ viewModel: ListMovies.ViewModel?) {
@@ -53,10 +57,23 @@ class MovieItemTableViewCell: UITableViewCell {
         
         titleLabel.text = viewModel.title
         voteAverageLabel.text = viewModel.voteAverage
+        
+        displayViews()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    private func hideViews() {
+        views.forEach { $0?.alpha = 0.0 }
+    }
+    
+    private func displayViews() {
+        UIView.animate(withDuration: 0.25) {
+            self.views.forEach { $0?.alpha = 1.0 }
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        hideViews()
     }
     
 }

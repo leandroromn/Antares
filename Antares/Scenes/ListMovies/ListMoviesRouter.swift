@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol ListMoviesRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToDetails()
 }
 
 protocol ListMoviesDataPassing {
@@ -25,38 +25,19 @@ class ListMoviesRouter: NSObject, ListMoviesRoutingLogic, ListMoviesDataPassing 
     weak var viewController: ListMoviesViewController?
     var dataStore: ListMoviesDataStore?
 
-    // MARK: Routing
-
-    /*
-    func routeToSomewhere(segue: UIStoryboardSegue?) {
-        if let segue = segue {
-            let destinationVC = segue.destination as! SomewhereViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-        } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-            navigateToSomewhere(source: viewController!, destination: destinationVC)
-        }
+    func routeToDetails() {
+        let vc = MovieDetailsViewController()
+        guard
+            let dataStore = dataStore,
+            let destinationRouter = vc.router,
+            var destinationDataStore = destinationRouter.dataStore
+        else { return }
+        passDataToDetails(source: dataStore, destination: &destinationDataStore)
+        viewController?.present(vc, animated: true)
     }
-    */
-
-    // MARK: Navigation
-
-    /*
-    func navigateToSomewhere(source: ListMoviesViewController, destination: SomewhereViewController) {
-        source.show(destination, sender: nil)
+    
+    private func passDataToDetails(source: ListMoviesDataStore, destination: inout MovieDetailsDataStore) {
+        destination.movieId = source.movieId
     }
-    */
-
-    // MARK: Passing data
-
-    /*
-    func passDataToSomewhere(source: ListMoviesDataStore, destination: inout SomewhereDataStore) {
-        destination.name = source.name
-    }
-    */
 
 }
