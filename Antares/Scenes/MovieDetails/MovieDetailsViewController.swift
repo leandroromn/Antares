@@ -66,4 +66,8 @@ extension MovieDetailsViewController: MovieDetailsDisplayLogic {
         
     }
     
+    func displayError(_ errorMessage: String) {
+        
+    }
+    
 }
