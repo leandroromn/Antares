@@ -11,9 +11,14 @@
 //
 
 import UIKit
+import PromiseKit
 
 class MovieDetailsWorker {
 
-    func doSomeWork() { }
+    let networkProvider = NetworkProvider.shared
+    
+    func retrieveDetailsForMovie(id movieId: Int) -> Promise<MovieDetails.Response> {
+        return networkProvider.request(.getDetailsForMovie(id: movieId))
+    }
 
 }

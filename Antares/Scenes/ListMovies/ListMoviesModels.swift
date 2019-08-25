@@ -11,9 +11,7 @@
 //
 
 enum ListMovies {
-    
     class Response: BaseResponse<[Movie]> {
-        
         init(page: Int, totalPages: Int, totalResults: Int, results: [Movie]) {
             super.init(page: page, totalResults: totalResults, totalPages: totalPages, results: results)
         }
@@ -21,11 +19,9 @@ enum ListMovies {
         required init(from decoder: Decoder) throws {
             try super.init(from: decoder)
         }
-        
     }
     
     struct ViewModel {
-        
         let title: String
         let overview: String
         let voteAverage: String
@@ -37,8 +33,6 @@ enum ListMovies {
             self.voteAverage = "\(movie.voteAverage)"
             self.posterPath = movie.posterPath
         }
-        
-        
     }
 
 }

@@ -45,3 +45,14 @@ extension Endpoint {
         )
     }
 }
+
+extension Endpoint {
+    static func getDetailsForMovie(id movieId: Int) -> Endpoint {
+        return Endpoint(
+            path: "/\(movieId)",
+            queryItems: [
+                URLQueryItem(name: "api_key", value: Configuration.getValue(for: .movieDatabaseAPIKey))
+            ]
+        )
+    }
+}

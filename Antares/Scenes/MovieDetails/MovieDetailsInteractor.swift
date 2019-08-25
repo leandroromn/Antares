@@ -31,7 +31,16 @@ class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore {
     }
 
     func requestDetails() {
-        print("Request details for movie id \(movieId ?? 0)")
+        guard let movieId = movieId else { return }
+        worker?.retrieveDetailsForMovie(id: movieId).done(handleRequestDetailsSuccess).catch(handleRequestDetailsError)
+    }
+    
+    private func handleRequestDetailsSuccess(_ response: MovieDetails.Response) {
+        presenter?.presentDetails(response)
+    }
+    
+    private func handleRequestDetailsError(_ error: Error) {
+        presenter?.presentError(error)
     }
 
 }

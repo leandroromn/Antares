@@ -13,10 +13,11 @@
 import UIKit
 
 protocol MovieDetailsDisplayLogic: class {
-    
+    func displayDetails(_ viewModel: MovieDetails.ViewModel)
+    func displayError(_ errorMessage: String)
 }
 
-class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
+class MovieDetailsViewController: UIViewController {
 
     var interactor: MovieDetailsBusinessLogic?
     var router: (NSObjectProtocol & MovieDetailsRoutingLogic & MovieDetailsDataPassing)?
@@ -55,6 +56,14 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDisplayLogic {
     
     private func requestDetails() {
         interactor?.requestDetails()
+    }
+    
+}
+
+extension MovieDetailsViewController: MovieDetailsDisplayLogic {
+    
+    func displayDetails(_ viewModel: MovieDetails.ViewModel) {
+        
     }
     
 }

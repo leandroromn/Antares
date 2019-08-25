@@ -13,11 +13,21 @@
 import UIKit
 
 protocol MovieDetailsPresentationLogic {
-    
+    func presentDetails(_ response: MovieDetails.Response)
+    func presentError(_ error: Error)
 }
 
 class MovieDetailsPresenter: MovieDetailsPresentationLogic {
 
     weak var viewController: MovieDetailsDisplayLogic?
+    
+    func presentDetails(_ response: MovieDetails.Response) {
+        let viewModel = MovieDetails.ViewModel(response: response)
+        viewController?.displayDetails(viewModel)
+    }
+    
+    func presentError(_ error: Error) {
+        viewController?.displayError(error.localizedDescription)
+    }
     
 }
