@@ -18,7 +18,7 @@ enum MovieDetails {
         let title: String
         let posterPath: String
         let overview: String
-        let duration: Int
+        let duration: Int?
         let releaseDate: String
         let revenue: Double
         let status: String
@@ -47,7 +47,7 @@ enum MovieDetails {
             self.title = response.title
             self.posterPath = response.posterPath
             self.overview = response.overview
-            self.duration = response.duration
+            self.duration = response.duration ?? 0
             self.releaseDate = response.releaseDate
             self.revenue = response.revenue
             self.status = response.status

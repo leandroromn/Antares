@@ -13,6 +13,8 @@
 import UIKit
 
 protocol MovieDetailsPresentationLogic {
+    func presentLoading()
+    func hideLoading()
     func presentDetails(_ response: MovieDetails.Response)
     func presentError(_ error: Error)
 }
@@ -20,6 +22,14 @@ protocol MovieDetailsPresentationLogic {
 class MovieDetailsPresenter: MovieDetailsPresentationLogic {
 
     weak var viewController: MovieDetailsDisplayLogic?
+    
+    func presentLoading() {
+        viewController?.displayLoading()
+    }
+    
+    func hideLoading() {
+        viewController?.hideLoading()
+    }
     
     func presentDetails(_ response: MovieDetails.Response) {
         let viewModel = MovieDetails.ViewModel(response: response)

@@ -32,7 +32,14 @@ class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore {
 
     func requestDetails() {
         guard let movieId = movieId else { return }
-        worker?.retrieveDetailsForMovie(id: movieId).done(handleRequestDetailsSuccess).catch(handleRequestDetailsError)
+        presenter?.presentLoading()
+        worker?
+            .retrieveDetailsForMovie(id: movieId)
+            .done(handleRequestDetailsSuccess)
+            .catch(handleRequestDetailsError)
+            .finally { [weak self] in
+                self?.presenter?.hideLoading()
+            }
     }
     
     private func handleRequestDetailsSuccess(_ response: MovieDetails.Response) {

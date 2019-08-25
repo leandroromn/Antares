@@ -11,8 +11,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol MovieDetailsDisplayLogic: class {
+    func displayLoading()
+    func hideLoading()
     func displayDetails(_ viewModel: MovieDetails.ViewModel)
     func displayError(_ errorMessage: String)
 }
@@ -25,7 +28,14 @@ class MovieDetailsViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var closeButtonContainerView: UIVisualEffectView!
+    @IBOutlet weak var overviewLabel: UILabel!
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -52,6 +62,23 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestDetails()
+        
+        closeButtonContainerView.subviews.forEach {
+            $0.layer.cornerRadius = closeButtonContainerView.frame.size.width/2
+            $0.layoutSubviews()
+        }
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissView))
+        swipeGesture.direction = .down
+        view.addGestureRecognizer(swipeGesture)
+    }
+    
+    @IBAction func dismissButtonAct(_ sender: UIButton) {
+        dismissView()
+    }
+    
+    @objc func dismissView() {
+        dismiss(animated: true)
     }
     
     private func requestDetails() {
@@ -62,8 +89,25 @@ class MovieDetailsViewController: UIViewController {
 
 extension MovieDetailsViewController: MovieDetailsDisplayLogic {
     
+    func displayLoading() {
+        containerView.alpha = 0.0
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func hideLoading() {
+        activityIndicator.stopAnimating()
+        UIView.animate(withDuration: 0.25) {
+            self.containerView.alpha = 1.0
+        }
+    }
+    
     func displayDetails(_ viewModel: MovieDetails.ViewModel) {
+        posterImageView.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
+        posterImageView.sd_setImage(with: viewModel.posterPath.getCoverImageWith(size: .original))
         
+        titleLabel.text = viewModel.title
+        overviewLabel.text = viewModel.overview
     }
     
     func displayError(_ errorMessage: String) {
