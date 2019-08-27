@@ -1,6 +1,0 @@
-framework module Pods_AntaresTests {
-  umbrella header "Pods-AntaresTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
