@@ -14,6 +14,7 @@
 		FD0D31542283BB570033FAD2 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31532283BB570033FAD2 /* NetworkProvider.swift */; };
 		FD10F8CE22A5DB64000BD89F /* ListMoviesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD10F8CD22A5DB64000BD89F /* ListMoviesPresenterTests.swift */; };
 		FD10F8D122A5DE92000BD89F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD10F8D022A5DE92000BD89F /* Logger.swift */; };
+		FD17B34F2315EC350046E02D /* MovieDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD17B34E2315EC350046E02D /* MovieDetailsInteractorTests.swift */; };
 		FD1B44BC22A3345F004AFE9C /* ListMoviesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */; };
 		FD2711CD2287B53500041A49 /* ListMovies.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2711CC2287B53500041A49 /* ListMovies.strings */; };
 		FD2711CF2287B59E00041A49 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2711CE2287B59E00041A49 /* R.generated.swift */; };
@@ -73,6 +74,7 @@
 		FD0D31532283BB570033FAD2 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		FD10F8CD22A5DB64000BD89F /* ListMoviesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesPresenterTests.swift; sourceTree = "<group>"; };
 		FD10F8D022A5DE92000BD89F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		FD17B34E2315EC350046E02D /* MovieDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsInteractorTests.swift; sourceTree = "<group>"; };
 		FD1B44BB22A3345F004AFE9C /* ListMoviesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesInteractorTests.swift; sourceTree = "<group>"; };
 		FD2711CC2287B53500041A49 /* ListMovies.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ListMovies.strings; sourceTree = "<group>"; };
 		FD2711CE2287B59E00041A49 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -174,10 +176,19 @@
 			path = Logging;
 			sourceTree = "<group>";
 		};
+		FD17B34D2315EBFE0046E02D /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FD17B34E2315EC350046E02D /* MovieDetailsInteractorTests.swift */,
+			);
+			path = MovieDetails;
+			sourceTree = "<group>";
+		};
 		FD1B44B922A333EF004AFE9C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				FD1B44BA22A33440004AFE9C /* ListMovies */,
+				FD17B34D2315EBFE0046E02D /* MovieDetails */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -572,7 +583,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -594,7 +605,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesPresenter.swift\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesWorker.swift\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesViewController.swift\"\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesPresenter.swift\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesWorker.swift\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesViewController.swift\" \\\n\"${INPUT_DIR}/Scenes/MovieDetails/MovieDetailsPresenter.swift\" \\\n\"${INPUT_DIR}/Scenes/MovieDetails/MovieDetailsWorker.swift\" \\\n\"${INPUT_DIR}/Scenes/MovieDetails/MovieDetailsViewController.swift\"\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
 		FF30CE4A5CF713CD7E343113 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -659,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD17B34F2315EC350046E02D /* MovieDetailsInteractorTests.swift in Sources */,
 				FD82824322A31947003C6C82 /* GeneratedMocks.swift in Sources */,
 				FD10F8CE22A5DB64000BD89F /* ListMoviesPresenterTests.swift in Sources */,
 				FD1B44BC22A3345F004AFE9C /* ListMoviesInteractorTests.swift in Sources */,
