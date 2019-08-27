@@ -35,7 +35,6 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var revenueLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var closeButtonContainerView: UIVisualEffectView!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -112,8 +111,7 @@ extension MovieDetailsViewController: MovieDetailsDisplayLogic {
         
         statusLabel.text = viewModel.status
         titleLabel.text = viewModel.title
-        durationLabel.text = "\(viewModel.duration)"
-        revenueLabel.text = "\(viewModel.revenue)"
+        durationLabel.text = viewModel.duration
         releaseDateLabel.text = viewModel.releaseDate
         overviewLabel.text = viewModel.overview
         

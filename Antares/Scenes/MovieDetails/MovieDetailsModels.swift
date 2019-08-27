@@ -20,7 +20,6 @@ enum MovieDetails {
         let overview: String
         let duration: Int?
         let releaseDate: String
-        let revenue: Double
         let status: String
         
         enum CodingKeys: String, CodingKey {
@@ -29,7 +28,6 @@ enum MovieDetails {
             case overview
             case duration = "runtime"
             case releaseDate = "release_date"
-            case revenue
             case status
         }
     }
@@ -40,7 +38,6 @@ enum MovieDetails {
         let overview: String
         let duration: String
         let releaseDate: String
-        let revenue: String
         let status: String
         
         init(response: MovieDetails.Response) {
@@ -49,7 +46,6 @@ enum MovieDetails {
             self.overview = response.overview
             self.duration = ViewModel.formatDuration(response.duration)
             self.releaseDate = ViewModel.formatReleaseDate(response.releaseDate)
-            self.revenue = ViewModel.formatRevenue(response.revenue)
             self.status = response.status
         }
         
@@ -72,14 +68,6 @@ enum MovieDetails {
             }
             
             return String()
-        }
-        
-        static func formatRevenue(_ value: Double) -> String {
-            let formatter = NumberFormatter()
-            formatter.usesGroupingSeparator = true
-            formatter.locale = Locale.current
-            formatter.numberStyle = .currency
-            return formatter.string(from: value as NSNumber) ?? ""
         }
         
     }
