@@ -29,6 +29,23 @@ class Movie: Decodable {
     let overview: String
     let releaseDate: String
     
+    init(voteCount: Int, id: Int, video: Bool, voteAverage: Double, title: String, popularity: Double, posterPath: String, originalLanguage: String, originalTitle: String, genres: [Int], backdropPath: String?, adult: Bool, overview: String, releaseDate: String) {
+        self.voteCount = voteCount
+        self.id = id
+        self.video = video
+        self.voteAverage = voteAverage
+        self.title = title
+        self.popularity = popularity
+        self.posterPath = posterPath
+        self.originalLanguage = originalLanguage
+        self.originalTitle = originalTitle
+        self.genres = genres
+        self.backdropPath = backdropPath
+        self.adult = adult
+        self.overview = overview
+        self.releaseDate = releaseDate
+    }
+    
     enum CodingKeys: String, CodingKey {
         case voteCount = "vote_count"
         case id

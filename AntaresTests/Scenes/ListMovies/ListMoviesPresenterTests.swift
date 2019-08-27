@@ -25,15 +25,14 @@ class ListMoviesPresenterTests: XCTestCase {
         let mockViewController = MockListMoviesDisplayLogic()
         
         stub(mockViewController) { stub in
-            when(stub.displayMovies(viewModel: any())).thenDoNothing()
+            when(stub.displayDynamicData()).thenDoNothing()
         }
         
         sut.viewController = mockViewController
         
-        let listMoviesResponse = ListMovies.Response(page: 1, totalPages: 100, totalResults: 1000, results: [])
-        sut.presentMovies(response: listMoviesResponse)
+        sut.presentDynamicData()
         
-        verify(mockViewController, times(1)).displayMovies(viewModel: any())
+        verify(mockViewController, times(1)).displayDynamicData()
     }
     
     func testPresentError() {
