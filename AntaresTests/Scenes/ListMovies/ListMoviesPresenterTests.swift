@@ -29,7 +29,6 @@ class ListMoviesPresenterTests: XCTestCase {
         }
         
         sut.viewController = mockViewController
-        
         sut.presentDynamicData()
         
         verify(mockViewController, times(1)).displayDynamicData()
@@ -46,6 +45,19 @@ class ListMoviesPresenterTests: XCTestCase {
         sut.presentError(NetworkError.mappingError)
         
         verify(mockViewController, times(1)).displayError(any())
+    }
+    
+    func testPresentMoviesDetails() {
+        let mockViewController = MockListMoviesDisplayLogic()
+        
+        stub(mockViewController) { stub in
+            when(stub.displayMovieDetails()).thenDoNothing()
+        }
+        
+        sut.viewController = mockViewController
+        sut.presentMovieDetails()
+        
+        verify(mockViewController, times(1)).displayMovieDetails()
     }
     
     override func tearDown() {
