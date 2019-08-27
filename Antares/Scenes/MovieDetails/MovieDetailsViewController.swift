@@ -32,7 +32,11 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var revenueLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var closeButtonContainerView: UIVisualEffectView!
     @IBOutlet weak var overviewLabel: UILabel!
     
@@ -106,8 +110,13 @@ extension MovieDetailsViewController: MovieDetailsDisplayLogic {
         posterImageView.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
         posterImageView.sd_setImage(with: viewModel.posterPath.getCoverImageWith(size: .original))
         
+        statusLabel.text = viewModel.status
         titleLabel.text = viewModel.title
+        durationLabel.text = "\(viewModel.duration)"
+        revenueLabel.text = "\(viewModel.revenue)"
+        releaseDateLabel.text = viewModel.releaseDate
         overviewLabel.text = viewModel.overview
+        
     }
     
     func displayError(_ errorMessage: String) {

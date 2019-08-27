@@ -38,20 +38,50 @@ enum MovieDetails {
         let title: String
         let posterPath: String
         let overview: String
-        let duration: Int
+        let duration: String
         let releaseDate: String
-        let revenue: Double
+        let revenue: String
         let status: String
         
         init(response: MovieDetails.Response) {
             self.title = response.title
             self.posterPath = response.posterPath
             self.overview = response.overview
-            self.duration = response.duration ?? 0
-            self.releaseDate = response.releaseDate
-            self.revenue = response.revenue
+            self.duration = ViewModel.formatDuration(response.duration)
+            self.releaseDate = ViewModel.formatReleaseDate(response.releaseDate)
+            self.revenue = ViewModel.formatRevenue(response.revenue)
             self.status = response.status
         }
+        
+        static func formatDuration(_ value: Int?) -> String {
+            if let value = value {
+                return "\(value) minutes"
+            }
+            return String()
+        }
+        
+        static func formatReleaseDate(_ releaseDate: String) -> String {
+            let dateFormatterGet = DateFormatter()
+            dateFormatterGet.dateFormat = "yyyy-MM-dd"
+            
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "MMM dd, yyyy"
+            
+            if let date = dateFormatterGet.date(from: releaseDate) {
+                return dateFormatterPrint.string(from: date)
+            }
+            
+            return String()
+        }
+        
+        static func formatRevenue(_ value: Double) -> String {
+            let formatter = NumberFormatter()
+            formatter.usesGroupingSeparator = true
+            formatter.locale = Locale.current
+            formatter.numberStyle = .currency
+            return formatter.string(from: value as NSNumber) ?? ""
+        }
+        
     }
 
 }
