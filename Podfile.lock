@@ -18,11 +18,11 @@ PODS:
   - SDWebImage/Core (5.0.4)
 
 DEPENDENCIES:
-  - Cuckoo (~> 1.0.6)
-  - Nimble
-  - PromiseKit (~> 6.8)
-  - R.swift
-  - SDWebImage (~> 5.0)
+  - Cuckoo (= 1.0.6)
+  - Nimble (= 8.0.1)
+  - PromiseKit (= 6.8.4)
+  - R.swift (= 5.0.3)
+  - SDWebImage (= 5.0.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -41,6 +41,6 @@ SPEC CHECKSUMS:
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   SDWebImage: c739016e4bdf0a4a1f9a04b5e0385395ad63a282
 
-PODFILE CHECKSUM: 782f6b21d19993dcdff4ccdd977f3259f5eaf344
+PODFILE CHECKSUM: 55d34b8c013376f1be184d26e91a9a6adbc4379b
 
 COCOAPODS: 1.6.1
