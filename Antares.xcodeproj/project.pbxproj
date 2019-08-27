@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CDB975368CDD69C110D1D62 /* Pods_AntaresTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E75C1AED4888F016007BDA04 /* Pods_AntaresTests.framework */; };
-		6BB1DF18CA58C57447EDBF2C /* Pods_Antares.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C8EB0EB9459A1C20B12324 /* Pods_Antares.framework */; };
+		537B7B3694C83E332CE97851 /* Pods_Antares.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7DB70392C7460C115967C6 /* Pods_Antares.framework */; };
+		61392DEEB63242C3B20F9E34 /* Pods_AntaresTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DEF4669AC3EC7221EB1AFB /* Pods_AntaresTests.framework */; };
 		FD0B288722F1254600AC8463 /* Strings+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0B288622F1254600AC8463 /* Strings+Extensions.swift */; };
 		FD0D31522283B4D90033FAD2 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31512283B4D90033FAD2 /* Endpoint.swift */; };
 		FD0D31542283BB570033FAD2 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0D31532283BB570033FAD2 /* NetworkProvider.swift */; };
@@ -60,14 +60,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		64A8C6E119E5F9DF2AE8C10B /* Pods-Antares.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.debug.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.debug.xcconfig"; sourceTree = "<group>"; };
-		719B4B81D070748D0859DD6F /* Pods-AntaresTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.debug.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7F2993E5AB0FE592C45BDB27 /* Pods-Antares.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.development.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.development.xcconfig"; sourceTree = "<group>"; };
-		82C8EB0EB9459A1C20B12324 /* Pods_Antares.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Antares.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDE3537302D273EC2253ABA4 /* Pods-AntaresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.release.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.release.xcconfig"; sourceTree = "<group>"; };
-		E70BD96FF92F4227D95DB90B /* Pods-Antares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.release.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.release.xcconfig"; sourceTree = "<group>"; };
-		E75C1AED4888F016007BDA04 /* Pods_AntaresTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntaresTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE79A2B6567EE902C716A950 /* Pods-AntaresTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.development.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.development.xcconfig"; sourceTree = "<group>"; };
+		02F7DE44BA4E3976A889F9DA /* Pods-Antares.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.development.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.development.xcconfig"; sourceTree = "<group>"; };
+		0B7DB70392C7460C115967C6 /* Pods_Antares.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Antares.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29B0424984054338E08D42C7 /* Pods-Antares.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.debug.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.debug.xcconfig"; sourceTree = "<group>"; };
+		2AB8B87585772ACC0FF9AC4D /* Pods-Antares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Antares.release.xcconfig"; path = "Target Support Files/Pods-Antares/Pods-Antares.release.xcconfig"; sourceTree = "<group>"; };
+		3FA0157DEED375FE716B476F /* Pods-AntaresTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.debug.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C438F97F0FB857FD611316D /* Pods-AntaresTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.development.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.development.xcconfig"; sourceTree = "<group>"; };
+		E1454827D31FBD280323EEA1 /* Pods-AntaresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntaresTests.release.xcconfig"; path = "Target Support Files/Pods-AntaresTests/Pods-AntaresTests.release.xcconfig"; sourceTree = "<group>"; };
+		E3DEF4669AC3EC7221EB1AFB /* Pods_AntaresTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntaresTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0B288622F1254600AC8463 /* Strings+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extensions.swift"; sourceTree = "<group>"; };
 		FD0D31512283B4D90033FAD2 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FD0D31532283BB570033FAD2 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BB1DF18CA58C57447EDBF2C /* Pods_Antares.framework in Frameworks */,
+				537B7B3694C83E332CE97851 /* Pods_Antares.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,18 +128,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CDB975368CDD69C110D1D62 /* Pods_AntaresTests.framework in Frameworks */,
+				61392DEEB63242C3B20F9E34 /* Pods_AntaresTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27C9674A916669ECC7F85E0D /* Frameworks */ = {
+		12E9039B1B65D5D0E7ECEC71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				82C8EB0EB9459A1C20B12324 /* Pods_Antares.framework */,
-				E75C1AED4888F016007BDA04 /* Pods_AntaresTests.framework */,
+				0B7DB70392C7460C115967C6 /* Pods_Antares.framework */,
+				E3DEF4669AC3EC7221EB1AFB /* Pods_AntaresTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,12 +147,12 @@
 		5772FDD990BA2F8C6A53ADB8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				64A8C6E119E5F9DF2AE8C10B /* Pods-Antares.debug.xcconfig */,
-				E70BD96FF92F4227D95DB90B /* Pods-Antares.release.xcconfig */,
-				719B4B81D070748D0859DD6F /* Pods-AntaresTests.debug.xcconfig */,
-				BDE3537302D273EC2253ABA4 /* Pods-AntaresTests.release.xcconfig */,
-				7F2993E5AB0FE592C45BDB27 /* Pods-Antares.development.xcconfig */,
-				EE79A2B6567EE902C716A950 /* Pods-AntaresTests.development.xcconfig */,
+				29B0424984054338E08D42C7 /* Pods-Antares.debug.xcconfig */,
+				02F7DE44BA4E3976A889F9DA /* Pods-Antares.development.xcconfig */,
+				2AB8B87585772ACC0FF9AC4D /* Pods-Antares.release.xcconfig */,
+				3FA0157DEED375FE716B476F /* Pods-AntaresTests.debug.xcconfig */,
+				6C438F97F0FB857FD611316D /* Pods-AntaresTests.development.xcconfig */,
+				E1454827D31FBD280323EEA1 /* Pods-AntaresTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				FD76046A227FB4A000FAFA3B /* AntaresTests */,
 				FD760454227FB4A000FAFA3B /* Products */,
 				5772FDD990BA2F8C6A53ADB8 /* Pods */,
-				27C9674A916669ECC7F85E0D /* Frameworks */,
+				12E9039B1B65D5D0E7ECEC71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -385,13 +385,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD760470227FB4A000FAFA3B /* Build configuration list for PBXNativeTarget "Antares" */;
 			buildPhases = (
-				8CADA1F7C6C62CF447CDAD3A /* [CP] Check Pods Manifest.lock */,
+				EF7EDE97FD266214C4E124C2 /* [CP] Check Pods Manifest.lock */,
 				FD2711CB2287B42200041A49 /* R.swift */,
 				FD76044F227FB4A000FAFA3B /* Sources */,
 				FD82823F22A316DB003C6C82 /* Cuckoo Script */,
 				FD760450227FB4A000FAFA3B /* Frameworks */,
 				FD760451227FB4A000FAFA3B /* Resources */,
-				A3B02B733FB83CEF211075C4 /* [CP] Embed Pods Frameworks */,
+				DBEDDCA78C402689163A2FE0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -406,11 +406,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD760473227FB4A000FAFA3B /* Build configuration list for PBXNativeTarget "AntaresTests" */;
 			buildPhases = (
-				C8C128E74ADD0F2B58B5B5C7 /* [CP] Check Pods Manifest.lock */,
+				FF30CE4A5CF713CD7E343113 /* [CP] Check Pods Manifest.lock */,
 				FD760463227FB4A000FAFA3B /* Sources */,
 				FD760464227FB4A000FAFA3B /* Frameworks */,
 				FD760465227FB4A000FAFA3B /* Resources */,
-				2AE2C4152976FECD850C4C9A /* [CP] Embed Pods Frameworks */,
+				343FDB6238F1AA3D284AD13E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -486,7 +486,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2AE2C4152976FECD850C4C9A /* [CP] Embed Pods Frameworks */ = {
+		343FDB6238F1AA3D284AD13E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -510,29 +510,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AntaresTests/Pods-AntaresTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8CADA1F7C6C62CF447CDAD3A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Antares-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A3B02B733FB83CEF211075C4 /* [CP] Embed Pods Frameworks */ = {
+		DBEDDCA78C402689163A2FE0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -558,7 +536,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Antares/Pods-Antares-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C8C128E74ADD0F2B58B5B5C7 /* [CP] Check Pods Manifest.lock */ = {
+		EF7EDE97FD266214C4E124C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -573,7 +551,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AntaresTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Antares-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -594,7 +572,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -617,6 +595,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesPresenter.swift\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesWorker.swift\" \\\n\"${INPUT_DIR}/Scenes/ListMovies/ListMoviesViewController.swift\"\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+		};
+		FF30CE4A5CF713CD7E343113 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AntaresTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -843,7 +843,7 @@
 		};
 		FD760474227FB4A000FAFA3B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 719B4B81D070748D0859DD6F /* Pods-AntaresTests.debug.xcconfig */;
+			baseConfigurationReference = 3FA0157DEED375FE716B476F /* Pods-AntaresTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -864,7 +864,7 @@
 		};
 		FD760475227FB4A000FAFA3B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDE3537302D273EC2253ABA4 /* Pods-AntaresTests.release.xcconfig */;
+			baseConfigurationReference = E1454827D31FBD280323EEA1 /* Pods-AntaresTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -965,7 +965,7 @@
 		};
 		FDA68AA0229A1381001DAC4A /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE79A2B6567EE902C716A950 /* Pods-AntaresTests.development.xcconfig */;
+			baseConfigurationReference = 6C438F97F0FB857FD611316D /* Pods-AntaresTests.development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
