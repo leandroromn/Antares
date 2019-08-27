@@ -108,17 +108,17 @@ extension MovieDetailsViewController: MovieDetailsDisplayLogic {
     func displayDetails(_ viewModel: MovieDetails.ViewModel) {
         posterImageView.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
         posterImageView.sd_setImage(with: viewModel.posterPath.getCoverImageWith(size: .original))
-        
         statusLabel.text = viewModel.status
         titleLabel.text = viewModel.title
         durationLabel.text = viewModel.duration
         releaseDateLabel.text = viewModel.releaseDate
         overviewLabel.text = viewModel.overview
-        
     }
     
     func displayError(_ errorMessage: String) {
-        
+        displayAlert(title: R.string.movieDetails.error_title(), message: R.string.movieDetails.error_subtitle(errorMessage), buttonTitle: R.string.movieDetails.error_button()) { [weak self] in
+            self?.dismiss(animated: true)
+        }
     }
     
 }

@@ -37,13 +37,11 @@ class MovieDetailsInteractor: MovieDetailsBusinessLogic, MovieDetailsDataStore {
             .retrieveDetailsForMovie(id: movieId)
             .done(handleRequestDetailsSuccess)
             .catch(handleRequestDetailsError)
-            .finally { [weak self] in
-                self?.presenter?.hideLoading()
-            }
     }
     
     private func handleRequestDetailsSuccess(_ response: MovieDetails.Response) {
         presenter?.presentDetails(response)
+        presenter?.hideLoading()
     }
     
     private func handleRequestDetailsError(_ error: Error) {

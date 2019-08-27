@@ -1,0 +1,11 @@
+/* 
+  MovieDetails.strings
+  Antares
+
+  Created by Leandro Romano on 27/08/19.
+  Copyright © 2019 Leandro Romano. All rights reserved.
+*/
+
+"error_title" = "Error";
+"error_subtitle" = "Unable to load movie details.\n\n%@";
+"error_button" = "Return to home";
