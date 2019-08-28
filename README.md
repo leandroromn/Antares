@@ -15,10 +15,10 @@ O projeto foi desenvolvido com a arquitetura **Clean Swift**, camada nativa de n
 
 ### Funcionalidades
 - [x] Listagem de filmes
-- [ ] Filtros para listagem
 - [x] Detalhes do filme
+- [x] Testes unitários para Presenter e Interactor.
+- [ ] Filtros para listagem
 - [ ] Animação personalizada para transição
-- [x] 100% de cobertura de testes unitários para Presenter e Interactor.
 - [ ] Testes de UI
 
 ### Setup
@@ -28,6 +28,11 @@ Para executar o projeto, execute os comandos abaixo no terminal:
 $ cd <diretorio-base>/Antares/
 $ pod install
 ```
+
+### API Token
+
+**É necessário criar uma conta no *The Movie Database* e gerar um *API Token* para rodar a aplicação.**
+[Clique aqui para criar uma nova conta.](https://www.themoviedb.org/account/signup)
 
 ### Ambiente de desenvolvimento
 - Xcode 10.3
